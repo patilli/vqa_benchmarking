@@ -1,0 +1,47 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval`
+====================================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.vg_eval
+   vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.voc_ap
+
+
+
+.. function:: vg_eval(detpath, gt_roidb, image_index, classindex, ovthresh=0.5, use_07_metric=False, eval_attributes=False)
+
+   rec, prec, ap, sorted_scores, npos = voc_eval(
+                               detpath,
+                               gt_roidb,
+                               image_index,
+                               classindex,
+                               [ovthresh],
+                               [use_07_metric])
+   Top level function that does the Visual Genome evaluation.
+   detpath: Path to detections
+   gt_roidb: List of ground truth structs.
+   image_index: List of image ids.
+   classindex: Category index
+   [ovthresh]: Overlap threshold (default = 0.5)
+   [use_07_metric]: Whether to use VOC07's 11 point AP computation
+       (default False)
+
+
+.. function:: voc_ap(rec, prec, use_07_metric=False)
+
+   ap = voc_ap(rec, prec, [use_07_metric])
+   Compute VOC AP given precision and recall.
+   If use_07_metric is true, uses the
+   VOC 07 11 point method (default:False).
+
+

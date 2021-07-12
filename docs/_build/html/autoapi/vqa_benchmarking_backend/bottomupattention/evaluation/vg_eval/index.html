@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval &mdash; VQA Benchmarking 06.07.2021 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script src="../../../../../_static/jquery.js"></script>
+        <script src="../../../../../_static/underscore.js"></script>
+        <script src="../../../../../_static/doctools.js"></script>
+        <script src="../../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> VQA Benchmarking
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">VQA Benchmarking</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../../_sources/autoapi/vqa_benchmarking_backend/bottomupattention/evaluation/vg_eval/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval">
+<span id="vqa-benchmarking-backend-bottomupattention-evaluation-vg-eval"></span><h1><a class="reference internal" href="#module-vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval" title="vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval"><code class="xref py py-mod docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval</span></code></a><a class="headerlink" href="#module-vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.vg_eval" title="vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.vg_eval"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vg_eval</span></code></a>(detpath, gt_roidb, image_index, classindex, ovthresh=0.5, use_07_metric=False, eval_attributes=False)</p></td>
+<td><p>rec, prec, ap, sorted_scores, npos = voc_eval(</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.voc_ap" title="vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.voc_ap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voc_ap</span></code></a>(rec, prec, use_07_metric=False)</p></td>
+<td><p>ap = voc_ap(rec, prec, [use_07_metric])</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.vg_eval">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.</code><code class="sig-name descname">vg_eval</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">detpath</span></em>, <em class="sig-param"><span class="n">gt_roidb</span></em>, <em class="sig-param"><span class="n">image_index</span></em>, <em class="sig-param"><span class="n">classindex</span></em>, <em class="sig-param"><span class="n">ovthresh</span><span class="o">=</span><span class="default_value">0.5</span></em>, <em class="sig-param"><span class="n">use_07_metric</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">eval_attributes</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.vg_eval" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>rec, prec, ap, sorted_scores, npos = voc_eval(</dt><dd><p>detpath,
+gt_roidb,
+image_index,
+classindex,
+[ovthresh],
+[use_07_metric])</p>
+</dd>
+</dl>
+<p>Top level function that does the Visual Genome evaluation.
+detpath: Path to detections
+gt_roidb: List of ground truth structs.
+image_index: List of image ids.
+classindex: Category index
+[ovthresh]: Overlap threshold (default = 0.5)
+[use_07_metric]: Whether to use VOC07’s 11 point AP computation</p>
+<blockquote>
+<div><p>(default False)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.voc_ap">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.</code><code class="sig-name descname">voc_ap</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rec</span></em>, <em class="sig-param"><span class="n">prec</span></em>, <em class="sig-param"><span class="n">use_07_metric</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.bottomupattention.evaluation.vg_eval.voc_ap" title="Permalink to this definition">¶</a></dt>
+<dd><p>ap = voc_ap(rec, prec, [use_07_metric])
+Compute VOC AP given precision and recall.
+If use_07_metric is true, uses the
+VOC 07 11 point method (default:False).</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Dirk Väth and Pascal Tilli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

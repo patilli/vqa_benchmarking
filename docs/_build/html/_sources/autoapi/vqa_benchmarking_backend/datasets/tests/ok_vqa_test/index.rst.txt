@@ -1,0 +1,34 @@
+:mod:`vqa_benchmarking_backend.datasets.tests.ok_vqa_test`
+==========================================================
+
+.. py:module:: vqa_benchmarking_backend.datasets.tests.ok_vqa_test
+
+
+Module Contents
+---------------
+
+.. data:: img_dir
+   :annotation: = /home/users0/tillipl/simtech/vqa-benchmarking/datasets/OK-VQA/images/val2014
+
+   
+
+.. data:: qsts_path
+   :annotation: = /home/users0/tillipl/simtech/vqa-benchmarking/datasets/OK-VQA/questions/OpenEnded_mscoco_val2014_...
+
+   
+
+.. data:: anno_path
+   :annotation: = /home/users0/tillipl/simtech/vqa-benchmarking/datasets/OK-VQA/questions/mscoco_val2014_annotations.json
+
+   
+
+.. data:: okVqa_dataset
+   
+
+   
+
+.. data:: test
+   :annotation: = 0
+
+   
+

@@ -1,0 +1,30 @@
+:mod:`vqa_benchmarking_backend`
+===============================
+
+.. py:module:: vqa_benchmarking_backend
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   bottomupattention/index.rst
+   datasets/index.rst
+   metrics/index.rst
+   models/index.rst
+   tokenizers/index.rst
+   utils/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   test_ban_gqa_metrics/index.rst
+   test_ban_vqa_metrics/index.rst
+
+

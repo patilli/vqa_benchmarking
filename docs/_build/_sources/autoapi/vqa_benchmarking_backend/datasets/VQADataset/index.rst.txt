@@ -1,0 +1,88 @@
+:mod:`vqa_benchmarking_backend.datasets.VQADataset`
+===================================================
+
+.. py:module:: vqa_benchmarking_backend.datasets.VQADataset
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.datasets.VQADataset.VQADataSample
+   vqa_benchmarking_backend.datasets.VQADataset.VQADataset
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.datasets.VQADataset.preprocess_question
+   vqa_benchmarking_backend.datasets.VQADataset.load_img
+   vqa_benchmarking_backend.datasets.VQADataset.load_img_feats
+   vqa_benchmarking_backend.datasets.VQADataset.preprocess_answer
+   vqa_benchmarking_backend.datasets.VQADataset.answer_score
+
+
+
+.. function:: preprocess_question(question: str) -> List[str]
+
+
+.. function:: load_img(path: str, transform=None) -> numpy.ndarray
+
+
+.. function:: load_img_feats(path: str) -> torch.FloatTensor
+
+
+.. function:: preprocess_answer(answer: str) -> str
+
+
+.. function:: answer_score(num_humans) -> float
+
+   Calculates VQA score in [0,1] depending on number of humans having given the same answer
+
+
+.. class:: VQADataSample(question_id: str, question: str, answers: Dict[str, float], image_id: str, image_path: str, image_feat_path: str, image_transform=None)
+
+
+   Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DataSample`
+
+   .. method:: image(self) -> numpy.ndarray
+      :property:
+
+
+   .. method:: question_tokenized(self) -> List[str]
+      :property:
+
+
+   .. method:: question(self) -> str
+      :property:
+
+
+
+.. class:: VQADataset(val_question_file: str, val_annotation_file: str, answer_file: str, img_dir, img_feat_dir, name: str, transform=None, load_img_features=False, dataset_fraction: float = 0.05, random_seed: int = 12345)
+
+
+   Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset`
+
+   .. method:: __len__(self)
+
+
+   .. method:: _load_data(self, question_file: str, annotation_file: str, dataset_fraction: float, random_seed: int) -> Tuple[List[vqa_benchmarking_backend.datasets.dataset.DataSample], Dict[str, vqa_benchmarking_backend.datasets.dataset.DataSample], vqa_benchmarking_backend.utils.vocab.Vocabulary, vqa_benchmarking_backend.utils.vocab.Vocabulary]
+
+
+   .. method:: __getitem__(self, index) -> vqa_benchmarking_backend.datasets.dataset.DataSample
+
+
+   .. method:: get_name(self) -> str
+
+
+   .. method:: class_idx_to_answer(self, class_idx: int) -> Union[str, None]
+
+
+

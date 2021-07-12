@@ -1,0 +1,35 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.setup`
+=======================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.setup
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.setup.get_extensions
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.setup.torch_ver
+
+
+.. data:: torch_ver
+   
+
+   
+
+.. function:: get_extensions()
+
+

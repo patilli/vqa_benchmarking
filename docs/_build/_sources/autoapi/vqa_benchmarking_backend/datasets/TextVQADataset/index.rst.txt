@@ -1,0 +1,96 @@
+:mod:`vqa_benchmarking_backend.datasets.TextVQADataset`
+=======================================================
+
+.. py:module:: vqa_benchmarking_backend.datasets.TextVQADataset
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample
+   vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question
+   vqa_benchmarking_backend.datasets.TextVQADataset.load_img
+   vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats
+   vqa_benchmarking_backend.datasets.TextVQADataset.answer_score
+
+
+
+.. function:: preprocess_question(question: str) -> List[str]
+
+
+.. function:: load_img(path: str, transform=None) -> numpy.ndarray
+
+
+.. function:: load_img_feats(path: str) -> torch.FloatTensor
+
+
+.. function:: answer_score(num_humans) -> float
+
+   Calculates VQA score in [0,1] depending on number of humans having given the same answer
+
+
+.. class:: TextVQADataSample(question_id: str, question: str, answers: Dict[str, float], image_id: str, image_path: str, image_feat_path: str, image_transform=None)
+
+
+   Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DataSample`
+
+   .. method:: image(self)
+      :property:
+
+
+   .. method:: question_tokenized(self) -> List[str]
+      :property:
+
+
+   .. method:: question(self) -> str
+      :property:
+
+
+   .. method:: __str__(self)
+
+
+
+.. class:: TextVQADataset(question_file: str, img_dir, img_feat_dir, idx2ans, transform=None, load_img_features=False)
+
+
+   Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset`
+
+   .. method:: _load_data(self, question_file: str) -> Tuple[List[vqa_benchmarking_backend.datasets.dataset.DataSample], Dict[str, vqa_benchmarking_backend.datasets.dataset.DataSample], vqa_benchmarking_backend.utils.vocab.Vocabulary, vqa_benchmarking_backend.utils.vocab.Vocabulary]
+
+
+   .. method:: __getitem__(self, index) -> vqa_benchmarking_backend.datasets.dataset.DataSample
+
+
+   .. method:: label_from_class(self, class_index: int) -> str
+
+
+   .. method:: word_in_vocab(self, word: str) -> bool
+
+
+   .. method:: __len__(self)
+
+
+   .. method:: index_to_question_id(self, index) -> str
+
+
+   .. method:: get_name(self) -> str
+
+
+   .. method:: class_idx_to_answer(self, class_idx: int) -> Union[str, None]
+
+
+

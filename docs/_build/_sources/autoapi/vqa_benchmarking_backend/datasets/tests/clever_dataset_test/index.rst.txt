@@ -1,0 +1,29 @@
+:mod:`vqa_benchmarking_backend.datasets.tests.clever_dataset_test`
+==================================================================
+
+.. py:module:: vqa_benchmarking_backend.datasets.tests.clever_dataset_test
+
+
+Module Contents
+---------------
+
+.. data:: img_dir
+   :annotation: = /home/users0/tillipl/simtech/vqa-benchmarking/datasets/CLEVR/CLEVR_v1.0/images/val
+
+   
+
+.. data:: qsts_path
+   :annotation: = /home/users0/tillipl/simtech/vqa-benchmarking/datasets/CLEVR/CLEVR_v1.0/questions/CLEVR_val_quest...
+
+   
+
+.. data:: gqa_dataset
+   
+
+   
+
+.. data:: test
+   :annotation: = 0
+
+   
+

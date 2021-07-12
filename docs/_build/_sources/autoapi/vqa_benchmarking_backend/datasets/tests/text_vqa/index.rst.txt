@@ -1,0 +1,29 @@
+:mod:`vqa_benchmarking_backend.datasets.tests.text_vqa`
+=======================================================
+
+.. py:module:: vqa_benchmarking_backend.datasets.tests.text_vqa
+
+
+Module Contents
+---------------
+
+.. data:: img_dir
+   :annotation: = /home/users0/tillipl/simtech/vqa-benchmarking/datasets/Text-VQA/images/test_images
+
+   
+
+.. data:: qsts_path
+   :annotation: = /home/users0/tillipl/simtech/vqa-benchmarking/datasets/Text-VQA/questions/TextVQA_0.5.1_test.json
+
+   
+
+.. data:: textVqa_dataset
+   
+
+   
+
+.. data:: test
+   :annotation: = 0
+
+   
+

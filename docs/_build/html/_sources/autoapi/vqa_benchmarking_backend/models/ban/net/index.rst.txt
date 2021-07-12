@@ -1,0 +1,28 @@
+:mod:`vqa_benchmarking_backend.models.ban.net`
+==============================================
+
+.. py:module:: vqa_benchmarking_backend.models.ban.net
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.models.ban.net.Net
+
+
+
+
+.. class:: Net(__C, pretrained_emb, token_size, answer_size)
+
+
+   Bases: :py:obj:`torch.nn.Module`
+
+   .. method:: forward(self, img_feat, q_feat=None)
+
+
+

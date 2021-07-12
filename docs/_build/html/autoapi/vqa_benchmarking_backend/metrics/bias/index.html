@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>vqa_benchmarking_backend.metrics.bias &mdash; VQA Benchmarking 06.07.2021 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> VQA Benchmarking
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">VQA Benchmarking</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.metrics.bias</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/vqa_benchmarking_backend/metrics/bias/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-vqa_benchmarking_backend.metrics.bias">
+<span id="vqa-benchmarking-backend-metrics-bias"></span><h1><a class="reference internal" href="#module-vqa_benchmarking_backend.metrics.bias" title="vqa_benchmarking_backend.metrics.bias"><code class="xref py py-mod docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.metrics.bias</span></code></a><a class="headerlink" href="#module-vqa_benchmarking_backend.metrics.bias" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.bias.inputs_for_question_bias_featurespace" title="vqa_benchmarking_backend.metrics.bias.inputs_for_question_bias_featurespace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inputs_for_question_bias_featurespace</span></code></a>(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample, min_img_feat_val: torch.FloatTensor, max_img_feat_val: torch.FloatTensor, min_img_feats: int = 10, max_img_feats: int = 100, trials: int = 15) → List[vqa_benchmarking_backend.datasets.dataset.DataSample]</p></td>
+<td><p>Creates inputs for measuring bias towards questions by creating random image features.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.bias.inputs_for_question_bias_imagespace" title="vqa_benchmarking_backend.metrics.bias.inputs_for_question_bias_imagespace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inputs_for_question_bias_imagespace</span></code></a>(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, trials: int = 15) → List[vqa_benchmarking_backend.datasets.dataset.DataSample]</p></td>
+<td><p>Creates inputs for measuring bias towards questions by replacing the current sample’s image with images drawn randomly from the dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.bias.inputs_for_image_bias_featurespace" title="vqa_benchmarking_backend.metrics.bias.inputs_for_image_bias_featurespace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inputs_for_image_bias_featurespace</span></code></a>(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample, min_question_feat_val: torch.FloatTensor, max_question_feat_val: torch.FloatTensor, min_tokens: int, max_tokens: int, trials: int = 15) → List[vqa_benchmarking_backend.datasets.dataset.DataSample]</p></td>
+<td><p>Creates inputs for measuring bias towards images by creating random question features.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.bias._extract_subjects_and_objects_from_text" title="vqa_benchmarking_backend.metrics.bias._extract_subjects_and_objects_from_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_extract_subjects_and_objects_from_text</span></code></a>(text: str) → Tuple[Set[str], Set[str]]</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.bias._questions_different" title="vqa_benchmarking_backend.metrics.bias._questions_different"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_questions_different</span></code></a>(q_a: str, q_b: str) → bool</p></td>
+<td><p>Simple comparison for the semantic equality of 2 questions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.bias.inputs_for_image_bias_wordspace" title="vqa_benchmarking_backend.metrics.bias.inputs_for_image_bias_wordspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inputs_for_image_bias_wordspace</span></code></a>(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, trials: int = 15) → List[vqa_benchmarking_backend.datasets.dataset.DataSample]</p></td>
+<td><p>Creates inputs for measuring bias towards images by replacing the current sample’s question with questions drawn randomly from the dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.bias.eval_bias" title="vqa_benchmarking_backend.metrics.bias.eval_bias"><code class="xref py py-obj docutils literal notranslate"><span class="pre">eval_bias</span></code></a>(dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, original_class_prediction: str, predictions: torch.FloatTensor) → Tuple[Dict[int, float], float]</p></td>
+<td><p>Evalutate predictions generated with <cite>inputs_for_question_bias_featurespace</cite>,</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.bias.nlp" title="vqa_benchmarking_backend.metrics.bias.nlp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">nlp</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="vqa_benchmarking_backend.metrics.bias.nlp">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.bias.</code><code class="sig-name descname">nlp</code><a class="headerlink" href="#vqa_benchmarking_backend.metrics.bias.nlp" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.metrics.bias.inputs_for_question_bias_featurespace">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.bias.</code><code class="sig-name descname">inputs_for_question_bias_featurespace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">current_sample</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a></span></em>, <em class="sig-param"><span class="n">min_img_feat_val</span><span class="p">:</span> <span class="n">torch.FloatTensor</span></em>, <em class="sig-param"><span class="n">max_img_feat_val</span><span class="p">:</span> <span class="n">torch.FloatTensor</span></em>, <em class="sig-param"><span class="n">min_img_feats</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">10</span></em>, <em class="sig-param"><span class="n">max_img_feats</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">100</span></em>, <em class="sig-param"><span class="n">trials</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">15</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a><span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.bias.inputs_for_question_bias_featurespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates inputs for measuring bias towards questions by creating random image features.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>min_img_feat_val (img_feat_dim): vector containing minimum value per feature dimension
+max_img_feat_val (img_feat_dim): vector containing maximum value per feature dimension</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>trials x [min_img_feats..max_img_feats] x img_feat_dim<span class="classifier">Tensor of randomly generated feature inputs in range [min_img_feat_val, max_img_feat_val].</span></dt><dd><p>Number of drawn features (dim=1) is randomly drawn from [min_img_feats, max_img_feats]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.metrics.bias.inputs_for_question_bias_imagespace">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.bias.</code><code class="sig-name descname">inputs_for_question_bias_imagespace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">current_sample</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a></span></em>, <em class="sig-param"><span class="n">dataset</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset" title="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset">vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset</a></span></em>, <em class="sig-param"><span class="n">trials</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">15</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a><span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.bias.inputs_for_question_bias_imagespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates inputs for measuring bias towards questions by replacing the current sample’s image with images drawn randomly from the dataset.
+Also, checks that the labels of the current sample and the drawn samples don’t overlap.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.metrics.bias.inputs_for_image_bias_featurespace">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.bias.</code><code class="sig-name descname">inputs_for_image_bias_featurespace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">current_sample</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a></span></em>, <em class="sig-param"><span class="n">min_question_feat_val</span><span class="p">:</span> <span class="n">torch.FloatTensor</span></em>, <em class="sig-param"><span class="n">max_question_feat_val</span><span class="p">:</span> <span class="n">torch.FloatTensor</span></em>, <em class="sig-param"><span class="n">min_tokens</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">max_tokens</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">trials</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">15</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a><span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.bias.inputs_for_image_bias_featurespace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates inputs for measuring bias towards images by creating random question features.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.metrics.bias._extract_subjects_and_objects_from_text">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.bias.</code><code class="sig-name descname">_extract_subjects_and_objects_from_text</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">text</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>Set<span class="p">[</span>str<span class="p">]</span><span class="p">, </span>Set<span class="p">[</span>str<span class="p">]</span><span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.bias._extract_subjects_and_objects_from_text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.metrics.bias._questions_different">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.bias.</code><code class="sig-name descname">_questions_different</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">q_a</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">q_b</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#vqa_benchmarking_backend.metrics.bias._questions_different" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simple comparison for the semantic equality of 2 questions.
+Tests, if the subjects and objects in the question are the same.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.metrics.bias.inputs_for_image_bias_wordspace">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.bias.</code><code class="sig-name descname">inputs_for_image_bias_wordspace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">current_sample</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a></span></em>, <em class="sig-param"><span class="n">dataset</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset" title="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset">vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset</a></span></em>, <em class="sig-param"><span class="n">trials</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">15</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a><span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.bias.inputs_for_image_bias_wordspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates inputs for measuring bias towards images by replacing the current sample’s question with questions drawn randomly from the dataset.
+Also, checks that the questions don’t overlap.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.metrics.bias.eval_bias">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.bias.</code><code class="sig-name descname">eval_bias</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset" title="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset">vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset</a></span></em>, <em class="sig-param"><span class="n">original_class_prediction</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">predictions</span><span class="p">:</span> <span class="n">torch.FloatTensor</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>Dict<span class="p">[</span>int<span class="p">, </span>float<span class="p">]</span><span class="p">, </span>float<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.bias.eval_bias" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Evalutate predictions generated with <cite>inputs_for_question_bias_featurespace</cite>,</dt><dd><p><cite>inputs_for_question_bias_imagespace</cite>,
+<cite>inputs_for_image_bias_featurespace</cite> or
+<cite>inputs_for_image_bias_wordspace</cite>.</p>
+</dd>
+<dt>Args:</dt><dd><p>predictions (trials x answer space): Model predictions (probabilities)</p>
+</dd>
+<dt>Returns:</dt><dd><ul class="simple">
+<li><p>Mapping from best prediction class -&gt; fraction of total predictions</p></li>
+<li><p>normalized bias score (float), where 0 means no bias, and 1 means 100% bias</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Dirk Väth and Pascal Tilli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

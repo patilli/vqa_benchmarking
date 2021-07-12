@@ -1,0 +1,34 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.utils`
+=======================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.utils
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   extract_utils/index.rst
+   extractor/index.rst
+   progress_bar/index.rst
+   utils/index.rst
+
+
+Package Contents
+----------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.utils.save_features
+
+
+
+.. function:: save_features(output_file, features, boxes=None)
+
+

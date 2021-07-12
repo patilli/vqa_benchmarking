@@ -1,0 +1,57 @@
+:mod:`vqa_benchmarking_backend.models.ban.model`
+================================================
+
+.. py:module:: vqa_benchmarking_backend.models.ban.model
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.models.ban.model.BANAdapter
+
+
+
+
+.. class:: BANAdapter(device, vocab: vqa_benchmarking_backend.utils.vocab.Vocabulary, ckpt_file: str = '')
+
+
+   Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter`
+
+   NOTE: when inheriting from this class, make sure to
+
+   * move the model to the intended device
+   * move the data to the intended device inside the _forward method
+
+   .. method:: get_name(self) -> str
+
+
+   .. method:: get_output_size(self) -> int
+
+
+   .. method:: get_torch_module(self) -> torch.nn.Module
+
+
+   .. method:: question_token_ids(self, question_tokenized: List[str]) -> torch.LongTensor
+
+
+   .. method:: get_question_embedding(self, sample: vqa_benchmarking_backend.datasets.dataset.DataSample) -> torch.FloatTensor
+
+
+   .. method:: get_image_embedding(self, sample: vqa_benchmarking_backend.datasets.dataset.DataSample) -> torch.FloatTensor
+
+
+   .. method:: _forward(self, samples: List[vqa_benchmarking_backend.datasets.dataset.DataSample]) -> torch.FloatTensor
+
+      Overwrite this function to connect a list of samples to your model.
+      IMPORTANT: 
+          * Make sure that the outputs are probabilities, not logits!
+          * Make sure that the data samples are using the samples' question embedding field, if assigned (instead of re-calculating them, they could be modified from feature space methods)
+          * Make sure that the data samples are moved to the intended device here
+
+
+

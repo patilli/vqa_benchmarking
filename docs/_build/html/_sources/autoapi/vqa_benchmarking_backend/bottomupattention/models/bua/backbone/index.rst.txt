@@ -1,0 +1,70 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.models.bua.backbone`
+=====================================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.models.bua.backbone
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.models.bua.backbone.BUABasicStem
+   vqa_benchmarking_backend.bottomupattention.models.bua.backbone.BUABasicStemv2
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.models.bua.backbone.build_bua_resnet_backbone
+
+
+
+.. class:: BUABasicStem(in_channels=3, out_channels=64, norm='BN')
+
+
+   Bases: :py:obj:`torch.nn.Module`
+
+   .. method:: forward(self, x)
+
+
+   .. method:: out_channels(self)
+      :property:
+
+
+   .. method:: stride(self)
+      :property:
+
+
+
+.. class:: BUABasicStemv2(in_channels=3, out_channels=64, norm='BN')
+
+
+   Bases: :py:obj:`torch.nn.Module`
+
+   .. method:: forward(self, x)
+
+
+   .. method:: out_channels(self)
+      :property:
+
+
+   .. method:: stride(self)
+      :property:
+
+
+
+.. function:: build_bua_resnet_backbone(cfg, input_shape)
+
+   Create a ResNet instance from config.
+
+   Returns:
+       ResNet: a :class:`ResNet` instance.
+
+

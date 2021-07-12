@@ -1,0 +1,73 @@
+:mod:`vqa_benchmarking_backend.metrics.metrics`
+===============================================
+
+.. py:module:: vqa_benchmarking_backend.metrics.metrics
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.metrics.metrics._reduce_min
+   vqa_benchmarking_backend.metrics.metrics._reduce_max
+   vqa_benchmarking_backend.metrics.metrics._get_img_feature_range
+   vqa_benchmarking_backend.metrics.metrics._get_question_feature_range
+   vqa_benchmarking_backend.metrics.metrics._get_db_connection
+   vqa_benchmarking_backend.metrics.metrics._write_class_answer_mapping
+   vqa_benchmarking_backend.metrics.metrics._write_qid_question_mapping
+   vqa_benchmarking_backend.metrics.metrics._write_table
+   vqa_benchmarking_backend.metrics.metrics.calculate_metrics
+
+
+
+.. function:: _reduce_min(tensor: torch.FloatTensor)
+
+
+.. function:: _reduce_max(tensor: torch.FloatTensor)
+
+
+.. function:: _get_img_feature_range(adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, output_path: str, num_samples: int = 500) -> Tuple[torch.FloatTensor, torch.FloatTensor]
+
+   Returns:
+   Tuple
+   * minimum feature values (per feature column) across dataset (FloatTensor: feature_dim)
+   * maximum feature values (per feature column) across dataset (FloatTensor: feature_dim)
+
+
+.. function:: _get_question_feature_range(adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, output_path: str, num_samples: int = 500) -> Tuple[torch.FloatTensor, torch.FloatTensor]
+
+   Returns:
+   Tuple
+   * minimum feature values (per feature column) across dataset (FloatTensor: feature_dim)
+   * maximum feature values (per feature column) across dataset (FloatTensor: feature_dim)
+
+
+.. function:: _get_db_connection(output_path: str, adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset) -> sqlite3.Connection
+
+
+.. function:: _write_class_answer_mapping(db: sqlite3.Connection, adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset)
+
+
+.. function:: _write_qid_question_mapping(db: sqlite3.Connection, adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset)
+
+
+.. function:: _write_table(db: sqlite3.Connection, metric_name: str, data: dict, overwrite: bool = True)
+
+
+.. function:: calculate_metrics(adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, metrics: List[str], output_path: str, trials: int = 15, min_tokens: int = 3, max_tokens: int = 10, start_sample: int = 0, max_samples: int = -1)
+
+   Args:
+   metrics: choice between ['accuracy',
+                            'question_bias_featurespace', 'question_bias_imagespace',
+                            'image_bias_featurespace', 'image_bias_wordspace',
+                            'image_robustness_imagespace', 'image_robustness_featurespace',
+                            'question_robustness_wordspace', 'question_robustness_featurespace',
+                            'sears',
+                            'uncertainty']
+
+

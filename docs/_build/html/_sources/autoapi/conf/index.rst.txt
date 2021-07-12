@@ -1,0 +1,64 @@
+:mod:`conf`
+===========
+
+.. py:module:: conf
+
+
+Module Contents
+---------------
+
+.. data:: project
+   :annotation: = VQA Benchmarking
+
+   
+
+.. data:: copyright
+   :annotation: = 2021, Dirk Väth and Pascal Tilli
+
+   
+
+.. data:: author
+   :annotation: = Dirk Väth and Pascal Tilli
+
+   
+
+.. data:: release
+   :annotation: = 06.07.2021
+
+   
+
+.. data:: extensions
+   :annotation: = ['sphinx_rtd_theme', 'autoapi.extension']
+
+   
+
+.. data:: templates_path
+   :annotation: = ['_templates']
+
+   
+
+.. data:: exclude_patterns
+   :annotation: = ['_build', 'Thumbs.db', '.DS_Store']
+
+   
+
+.. data:: html_theme
+   :annotation: = sphinx_rtd_theme
+
+   
+
+.. data:: html_static_path
+   :annotation: = ['_static']
+
+   
+
+.. data:: autoapi_type
+   :annotation: = python
+
+   
+
+.. data:: autoapi_dirs
+   :annotation: = ['',...
+
+   
+

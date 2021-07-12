@@ -1,0 +1,73 @@
+:mod:`vqa_benchmarking_backend.metrics.robustness`
+==================================================
+
+.. py:module:: vqa_benchmarking_backend.metrics.robustness
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.metrics.robustness.inputs_for_image_robustness_imagespace
+   vqa_benchmarking_backend.metrics.robustness.inputs_for_image_robustness_featurespace
+   vqa_benchmarking_backend.metrics.robustness.inputs_for_question_robustness_wordspace
+   vqa_benchmarking_backend.metrics.robustness.inputs_for_question_robustness_featurespace
+   vqa_benchmarking_backend.metrics.robustness.eval_robustness
+
+
+
+.. function:: inputs_for_image_robustness_imagespace(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample, trials: int = 3, gaussian_mean: float = 0.0, gaussian_variance: float = 0.025, salt_pepper_amount: float = 0.1, salt_vs_pepper_ratio: float = 0.5, speckle_mean: float = 0.0, speckle_variance: float = 0.05, noise_types=['gaussian', 'poisson', 's&p', 'speckle'], seed: int = 12345) -> List[vqa_benchmarking_backend.datasets.dataset.DataSample]
+
+   NOTE: creates len(noise_types) * trials outputs, because 1 output per noise type ()
+
+   https://scikit-image.org/docs/stable/api/skimage.util.html#random-noise
+
+   Args:
+       noise_types: sub-list of ['gaussian', 'localvar', 'poisson', 'salt', 'pepper', 's&p', 'speckle']
+
+   Returns:
+       List[DataSample] of length len(noise_types)*trials
+
+
+.. function:: inputs_for_image_robustness_featurespace(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample, std: float = 0.01, trials: int = 15) -> List[vqa_benchmarking_backend.datasets.dataset.DataSample]
+
+   Additive gaussian noise for input features
+
+
+.. function:: inputs_for_question_robustness_wordspace(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample, trials: int = 15, noise_types=['typo', 'insert', 'permute', 'synonyms', 'delete'], max_edits_per_sample: int = 2) -> List[vqa_benchmarking_backend.datasets.dataset.DataSample]
+
+   Ideas:
+   * typos (might not be in vocab... - should be doable with BERT and fastText.subwords though)
+   * change order of words (does it have to be grammatically safe?)
+   * insert unneccessary words (when is that safe?)
+   * replace with synonyms (where to get synonym map?)
+   * delete word (when is that safe? e.g. don't delete 'color' from 'What color is...?')
+
+   maybe noise is more meaningful in feature space than word space
+
+
+.. function:: inputs_for_question_robustness_featurespace(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample, adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, std: float = 0.01, trials: int = 15) -> List[vqa_benchmarking_backend.datasets.dataset.DataSample]
+
+   Additive gaussian noise for input features
+
+
+.. function:: eval_robustness(dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, original_class_prediction: str, predictions: torch.FloatTensor) -> Tuple[Dict[int, float], float]
+
+   Evalutate predictions generated with `inputs_for_question_bias_featurespace`,
+                                        `inputs_for_question_bias_imagespace`,
+                                        `inputs_for_image_bias_featurespace` or
+                                        `inputs_for_image_bias_wordspace`.
+
+   Args:
+       predictions (trials): Model predictions (probabilities)
+
+   Returns:
+       * Mapping from best prediction class -> fraction of total predictions
+       * normalized robustness score (float), where 0 means not robust, and 1 means 100% robust
+
+

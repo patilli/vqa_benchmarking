@@ -1,0 +1,51 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.extract_features`
+==================================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.extract_features
+
+.. autoapi-nested-parse::
+
+   TridentNet Training Script.
+
+   This script is a simplified version of the training script in detectron2/tools.
+
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.extract_features.switch_extract_mode
+   vqa_benchmarking_backend.bottomupattention.extract_features.set_min_max_boxes
+   vqa_benchmarking_backend.bottomupattention.extract_features.setup
+   vqa_benchmarking_backend.bottomupattention.extract_features.generate_npz
+   vqa_benchmarking_backend.bottomupattention.extract_features.extract_feat
+   vqa_benchmarking_backend.bottomupattention.extract_features.main
+
+
+
+.. function:: switch_extract_mode(mode)
+
+
+.. function:: set_min_max_boxes(min_max_boxes)
+
+
+.. function:: setup(args)
+
+   Create configs and perform basic setups.
+
+
+.. function:: generate_npz(extract_mode, *args)
+
+
+.. function:: extract_feat(split_idx, img_list, cfg, args, actor: ray.actor.ActorHandle)
+
+
+.. function:: main()
+
+

@@ -1,0 +1,33 @@
+:mod:`vqa_benchmarking_backend.bottomupattention`
+=================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   dataloader/index.rst
+   evaluation/index.rst
+   models/index.rst
+   utils/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   extract_features/index.rst
+   extract_features_faster/index.rst
+   extract_in_memory/index.rst
+   opts/index.rst
+   setup/index.rst
+   test/index.rst
+   train_net/index.rst
+
+

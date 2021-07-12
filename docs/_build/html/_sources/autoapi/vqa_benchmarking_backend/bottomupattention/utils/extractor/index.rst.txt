@@ -1,0 +1,50 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.utils.extractor`
+=================================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.utils.extractor
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.utils.extractor.inference_on_dataset
+   vqa_benchmarking_backend.bottomupattention.utils.extractor.inference_context
+
+
+
+.. function:: inference_on_dataset(model, data_loader)
+
+   Run model on the data_loader and extract the features with extractor.
+   The model will be used in eval mode.
+
+   Args:
+       model (nn.Module): a module which accepts an object from
+           `data_loader` and returns some outputs. It will be temporarily set to `eval` mode.
+
+           If you wish to extract a model in `training` mode instead, you can
+           wrap the given model and override its behavior of `.eval()` and `.train()`.
+       data_loader: an iterable object with a length.
+           The elements it generates will be the inputs to the model.
+       evaluator (DatasetEvaluator): the evaluator to run. Use
+           :class:`DatasetEvaluators([])` if you only want to benchmark, but
+           don't want to do any evaluation.
+
+   Returns:
+       The return value of `evaluator.evaluate()`
+
+
+.. function:: inference_context(model)
+
+   A context where the model is temporarily changed to eval mode,
+   and restored to previous mode afterwards.
+
+   Args:
+       model: a torch Module
+
+

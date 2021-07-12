@@ -1,0 +1,69 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.dataloader`
+============================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.dataloader
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   dataset_mapper/index.rst
+   dataset_vg/index.rst
+   detection_utils/index.rst
+   load_vg_json/index.rst
+   transform_gen/index.rst
+
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.dataloader.DatasetMapper
+
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.dataloader.__all__
+
+
+.. class:: DatasetMapper(cfg, is_train=True)
+
+
+   A callable which takes a dataset dict in Detectron2 Dataset format,
+   and map it into a format used by the model.
+
+   This is the default callable to be used to map your dataset dict into training data.
+   You may need to follow it to implement your own one for customized logic.
+
+   The callable currently does the following:
+   1. Read the image from "file_name"
+   2. Applies cropping/geometric transforms to the image and annotations
+   3. Prepare data and annotations to Tensor and :class:`Instances`
+
+   .. method:: __call__(self, dataset_dict)
+
+      Args:
+          dataset_dict (dict): Metadata of one image, in Detectron2 Dataset format.
+
+      Returns:
+          dict: a format that builtin models in detectron2 accept
+
+
+
+.. data:: __all__
+   
+
+   
+

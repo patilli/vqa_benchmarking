@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Use integrated Datasets &mdash; VQA Benchmarking 06.07.2021 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Write a Model Adapter" href="modelAdapter.html" />
+    <link rel="prev" title="Integrate new Datasets" href="buildDataset.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> VQA Benchmarking
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="buildDataset.html">Integrate new Datasets</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Use integrated Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modelAdapter.html">Write a Model Adapter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="evalMetrics.html">Evaluate Metrics</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">VQA Benchmarking</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="started.html">Getting Started</a> &raquo;</li>
+        
+      <li>Use integrated Datasets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/useDatasets.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="use-integrated-datasets">
+<h1>Use integrated Datasets<a class="headerlink" href="#use-integrated-datasets" title="Permalink to this headline">¶</a></h1>
+<p>We built in a few datasets that can be used out-of-the-box, namely CLEVR, GQA, TextVQA and VQA2.
+These <code class="docutils literal notranslate"><span class="pre">PyTorch</span></code> datasets can used to load any dataset that follows the same structure or format.
+As an example, the OK-VQA dataset can be loaded using our <code class="docutils literal notranslate"><span class="pre">VQADataset</span></code> , and the GQA-OOD using our <code class="docutils literal notranslate"><span class="pre">GQADataset</span></code> .</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.datasets.GQADataset</span> <span class="kn">import</span> <span class="n">GQADataset</span>
+<span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.datasets.TextVQADataset</span> <span class="kn">import</span> <span class="n">TextVQADataset</span>
+<span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.datasets.VQADataset</span> <span class="kn">import</span> <span class="n">VQADataset</span>
+<span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.datasets.CLEVRDataset</span> <span class="kn">import</span> <span class="n">CLEVRDataset</span>
+
+<span class="c1"># insert required paths</span>
+
+<span class="c1"># Vanilla GQA dataset</span>
+<span class="n">gqa_dataset</span> <span class="o">=</span> <span class="n">GQADataset</span><span class="p">(</span><span class="n">question_file</span><span class="o">=</span><span class="n">qsts_path</span><span class="p">,</span> <span class="n">img_dir</span><span class="o">=</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">img_feat_dir</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">idx2ans</span><span class="o">=</span><span class="n">all_indices</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GQA&#39;</span><span class="p">)</span>
+
+<span class="c1"># GQA-OOD splits</span>
+<span class="n">gqa_dataset_odd_all</span> <span class="o">=</span> <span class="n">GQADataset</span><span class="p">(</span><span class="n">question_file</span><span class="o">=</span><span class="n">gqa_ood_testdev_all</span><span class="p">,</span> <span class="n">img_dir</span><span class="o">=</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">img_feat_dir</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">idx2ans</span><span class="o">=</span><span class="n">all_indices</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GQA-OOD-ALL&#39;</span><span class="p">)</span>
+<span class="n">gqa_dataset_odd_head</span> <span class="o">=</span> <span class="n">GQADataset</span><span class="p">(</span><span class="n">question_file</span><span class="o">=</span><span class="n">gqa_ood_testdev_head</span><span class="p">,</span> <span class="n">img_dir</span><span class="o">=</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">img_feat_dir</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">idx2ans</span><span class="o">=</span><span class="n">all_indices</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GQA-OOD-HEAD&#39;</span><span class="p">)</span>
+<span class="n">gqa_dataset_odd_tail</span> <span class="o">=</span> <span class="n">GQADataset</span><span class="p">(</span><span class="n">question_file</span><span class="o">=</span><span class="n">gqa_ood_testdev_tail</span><span class="p">,</span> <span class="n">img_dir</span><span class="o">=</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">img_feat_dir</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">idx2ans</span><span class="o">=</span><span class="n">all_indices</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GQA-OOD-TAIL&#39;</span><span class="p">)</span>
+
+<span class="c1"># TextVQA dataset</span>
+<span class="n">textvqa_dataset</span> <span class="o">=</span> <span class="n">TextVQADataset</span><span class="p">(</span><span class="n">question_file</span><span class="o">=</span><span class="n">text_vqa_qsts_path</span><span class="p">,</span> <span class="n">img_dir</span><span class="o">=</span><span class="n">text_vqa_imgs_path</span><span class="p">,</span> <span class="n">img_feat_dir</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">idx2ans</span><span class="o">=</span><span class="n">all_indices</span><span class="p">)</span>
+
+<span class="c1"># CLEVR dataset</span>
+<span class="n">clevr_dataset</span> <span class="o">=</span> <span class="n">CLEVRDataset</span><span class="p">(</span><span class="n">question_file</span><span class="o">=</span><span class="n">clevr_qsts_path</span><span class="p">,</span> <span class="n">img_dir</span><span class="o">=</span><span class="n">clevr_img_dir</span><span class="p">,</span> <span class="n">img_feat_dir</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">idx2ans</span><span class="o">=</span><span class="n">all_indices</span><span class="p">)</span>
+
+<span class="c1"># Vanilla VQA2 dataset</span>
+<span class="n">vqav2_dataset</span> <span class="o">=</span> <span class="n">VQADataset</span><span class="p">(</span>
+    <span class="n">val_question_file</span><span class="o">=</span><span class="n">vqav2_qsts_path</span><span class="p">,</span>
+    <span class="n">val_annotation_file</span><span class="o">=</span><span class="n">vqav2_anno_path</span><span class="p">,</span>
+    <span class="n">answer_file</span><span class="o">=</span><span class="n">all_indices</span><span class="p">,</span>
+    <span class="n">img_dir</span><span class="o">=</span><span class="n">vqav2_img_dir</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;VQA2&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># OK-VQA using VQADataset</span>
+<span class="n">okvqa_dataset</span> <span class="o">=</span> <span class="n">VQADataset</span><span class="p">(</span>
+            <span class="n">val_question_file</span><span class="o">=</span><span class="n">ok_vqa_qsts_path</span><span class="p">,</span>
+    <span class="n">val_annotation_file</span><span class="o">=</span><span class="n">ok_vqa_anno_path</span><span class="p">,</span>
+            <span class="n">answer_file</span><span class="o">=</span><span class="n">all_indices</span><span class="p">,</span>
+            <span class="n">img_dir</span><span class="o">=</span><span class="n">ok_vqa_imgs_path</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;OK-VQA&#39;</span><span class="p">,</span>
+    <span class="n">dataset_fraction</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="modelAdapter.html" class="btn btn-neutral float-right" title="Write a Model Adapter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="buildDataset.html" class="btn btn-neutral float-left" title="Integrate new Datasets" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Dirk Väth and Pascal Tilli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

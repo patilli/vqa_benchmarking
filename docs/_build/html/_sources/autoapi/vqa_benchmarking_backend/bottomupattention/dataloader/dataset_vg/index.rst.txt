@@ -1,0 +1,19 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.dataloader.dataset_vg`
+=======================================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.dataloader.dataset_vg
+
+
+Module Contents
+---------------
+
+.. data:: SPLITS
+   
+
+   
+
+.. data:: json_file
+   
+
+   
+

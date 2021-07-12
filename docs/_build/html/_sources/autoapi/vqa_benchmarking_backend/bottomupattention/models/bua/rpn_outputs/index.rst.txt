@@ -1,0 +1,123 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.models.bua.rpn_outputs`
+========================================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.models.bua.rpn_outputs
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.models.bua.rpn_outputs.BUARPNOutputs
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.models.bua.rpn_outputs.find_top_bua_rpn_proposals
+   vqa_benchmarking_backend.bottomupattention.models.bua.rpn_outputs.bua_rpn_losses
+
+
+
+.. function:: find_top_bua_rpn_proposals(proposals, pred_objectness_logits, images, nms_thresh, pre_nms_topk, post_nms_topk, min_box_side_len, training)
+
+   For each feature map, select the `pre_nms_topk` highest scoring proposals,
+   apply NMS, clip proposals, and remove small boxes. Return the `post_nms_topk`
+   highest scoring proposals among all the feature maps if `training` is True,
+   otherwise, returns the highest `post_nms_topk` scoring proposals for each
+   feature map.
+
+   Args:
+       proposals (list[Tensor]): A list of L tensors. Tensor i has shape (N, Hi*Wi*A, 4).
+           All proposal predictions on the feature maps.
+       pred_objectness_logits (list[Tensor]): A list of L tensors. Tensor i has shape (N, Hi*Wi*A).
+       images (ImageList): Input images as an :class:`ImageList`.
+       nms_thresh (float): IoU threshold to use for NMS
+       pre_nms_topk (int): number of top k scoring proposals to keep before applying NMS.
+           When RPN is run on multiple feature maps (as in FPN) this number is per
+           feature map.
+       post_nms_topk (int): number of top k scoring proposals to keep after applying NMS.
+           When RPN is run on multiple feature maps (as in FPN) this number is total,
+           over all feature maps.
+       min_box_side_len (float): minimum proposal box side length in pixels (absolute units
+           wrt input images).
+       training (bool): True if proposals are to be used in training, otherwise False.
+           This arg exists only to support a legacy bug; look for the "NB: Legacy bug ..."
+           comment.
+
+   Returns:
+       proposals (list[Instances]): list of N Instances. The i-th Instances
+           stores post_nms_topk object proposals for image i.
+
+
+.. class:: BUARPNOutputs(box2box_transform, anchor_matcher, batch_size_per_image, positive_fraction, images, pred_objectness_logits, pred_anchor_deltas, anchors, boundary_threshold=0, gt_boxes=None, smooth_l1_beta=0.0)
+
+
+   Bases: :py:obj:`object`
+
+   .. method:: _get_ground_truth(self)
+
+      Returns:
+      gt_objectness_logits: list of N tensors. Tensor i is a vector whose length is the
+          total number of anchors in image i (i.e., len(anchors[i])). Label values are
+          in {-1, 0, 1}, with meanings: -1 = ignore; 0 = negative class; 1 = positive class.
+      gt_anchor_deltas: list of N tensors. Tensor i has shape (len(anchors[i]), 4).
+
+
+   .. method:: losses(self)
+
+      Return the losses from a set of RPN predictions and their associated ground-truth.
+
+      Returns:
+          dict[loss name -> loss value]: A dict mapping from loss name to loss value.
+              Loss names are: `loss_rpn_cls` for objectness classification and
+              `loss_rpn_loc` for proposal localization.
+
+
+   .. method:: predict_proposals(self)
+
+      Transform anchors into proposals by applying the predicted anchor deltas.
+
+      Returns:
+          proposals (list[Tensor]): A list of L tensors. Tensor i has shape
+              (N, Hi*Wi*A, B), where B is box dimension (4 or 5).
+
+
+   .. method:: predict_objectness_logits(self)
+
+      Return objectness logits in the same format as the proposals returned by
+      :meth:`predict_proposals`.
+
+      Returns:
+          pred_objectness_logits (list[Tensor]): A list of L tensors. Tensor i has shape
+              (N, Hi*Wi*A).
+
+
+
+.. function:: bua_rpn_losses(gt_objectness_logits, gt_anchor_deltas, pred_objectness_logits, pred_anchor_deltas, smooth_l1_beta)
+
+   Args:
+       gt_objectness_logits (Tensor): shape (N,), each element in {-1, 0, 1} representing
+           ground-truth objectness labels with: -1 = ignore; 0 = not object; 1 = object.
+       gt_anchor_deltas (Tensor): shape (N, box_dim), row i represents ground-truth
+           box2box transform targets (dx, dy, dw, dh) or (dx, dy, dw, dh, da) that map anchor i to
+           its matched ground-truth box.
+       pred_objectness_logits (Tensor): shape (N, 2), each element is a predicted objectness
+           logit.
+       pred_anchor_deltas (Tensor): shape (N, box_dim), each row is a predicted box2box
+           transform (dx, dy, dw, dh) or (dx, dy, dw, dh, da)
+       smooth_l1_beta (float): The transition point between L1 and L2 loss in
+           the smooth L1 loss function. When set to 0, the loss becomes L1. When
+           set to +inf, the loss becomes constant 0.
+
+   Returns:
+       objectness_loss, localization_loss, both unnormalized (summed over samples).
+
+

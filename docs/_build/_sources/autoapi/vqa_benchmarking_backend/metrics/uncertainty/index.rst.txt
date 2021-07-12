@@ -1,0 +1,30 @@
+:mod:`vqa_benchmarking_backend.metrics.uncertainty`
+===================================================
+
+.. py:module:: vqa_benchmarking_backend.metrics.uncertainty
+
+
+Module Contents
+---------------
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.metrics.uncertainty.certainty
+
+
+
+.. function:: certainty(dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, sample: vqa_benchmarking_backend.datasets.dataset.DataSample, trials: int = 15) -> Tuple[Dict[int, float], Dict[int, float], float]
+
+   Monte-Carlo uncertainty: predict on same sample num_iters times with different dropouts -> measure how often prediction rank changes
+
+   Returns:
+       Tuple:
+       * Mapping from best prediction class -> fraction of total predictions
+       * Mapping from best prediction class -> certainty score in range [0,1]
+       * Entropy
+
+

@@ -1,0 +1,18 @@
+:mod:`vqa_benchmarking_backend.datasets.tests`
+==============================================
+
+.. py:module:: vqa_benchmarking_backend.datasets.tests
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   clever_dataset_test/index.rst
+   gqa_dataset_test/index.rst
+   ok_vqa_test/index.rst
+   text_vqa/index.rst
+
+

@@ -1,0 +1,30 @@
+:mod:`wrappers`
+===============
+
+.. py:module:: wrappers
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   wrappers.Conv2dv2
+
+
+
+
+.. class:: Conv2dv2(*args, **kwargs)
+
+
+   Bases: :py:obj:`torch.nn.Conv2d`
+
+   A wrapper around :class:`torch.nn.Conv2d` to support more features.
+
+   .. method:: forward(self, x)
+
+
+

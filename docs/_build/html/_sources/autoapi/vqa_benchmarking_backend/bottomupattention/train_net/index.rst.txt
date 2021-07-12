@@ -1,0 +1,73 @@
+:mod:`vqa_benchmarking_backend.bottomupattention.train_net`
+===========================================================
+
+.. py:module:: vqa_benchmarking_backend.bottomupattention.train_net
+
+.. autoapi-nested-parse::
+
+   TridentNet Training Script.
+
+   This script is a simplified version of the training script in detectron2/tools.
+
+
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.train_net.Trainer
+
+
+
+Functions
+~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.train_net.setup
+   vqa_benchmarking_backend.bottomupattention.train_net.main
+
+
+
+Attributes
+~~~~~~~~~~
+
+.. autoapisummary::
+
+   vqa_benchmarking_backend.bottomupattention.train_net.args
+
+
+.. class:: Trainer
+
+   Bases: :py:obj:`detectron2.engine.DefaultTrainer`
+
+   .. method:: build_evaluator(cls, cfg, dataset_name, output_folder=None)
+      :classmethod:
+
+
+   .. method:: build_test_loader(cls, cfg, dataset_name)
+      :classmethod:
+
+
+   .. method:: build_train_loader(cls, cfg)
+      :classmethod:
+
+
+
+.. function:: setup(args)
+
+   Create configs and perform basic setups.
+
+
+.. function:: main(args)
+
+
+.. data:: args
+   
+
+   
+
