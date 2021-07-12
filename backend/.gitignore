@@ -1,0 +1,11 @@
+.pyc
+__pycache__
+*.egg-info
+build/
+*.nfs*
+*.so
+*.npz
+output
+*.pth
+.vscode
+*.egg
