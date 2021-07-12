@@ -1,3 +1,0 @@
-vqa_benchmarking_backend.dataset
-================================
-
