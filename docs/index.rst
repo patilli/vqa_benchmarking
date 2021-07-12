@@ -11,6 +11,7 @@ Welcome to VQA Benchmarking's documentation!
 
    installation
    started
+   includeme
 
 .. automodule:: my_project.main
    :members:
