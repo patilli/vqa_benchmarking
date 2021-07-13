@@ -118,7 +118,7 @@ class DiagnosticDataset(Dataset):
 
 class DatasetModelAdapter:
     """
-    Superclass for model adapters
+    Superclass for model adapters. 
     When inheriting from this class, make sure to
         * move the model to the intended device
         * move the data to the intended device inside the _forward method
