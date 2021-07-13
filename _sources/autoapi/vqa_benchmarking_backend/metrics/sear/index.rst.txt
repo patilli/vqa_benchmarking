@@ -24,14 +24,22 @@ Functions
 
 .. function:: _apply_SEAR_1(question_postagged: List[Tuple[str, str]])
 
+   SEAR 1: WP VBZ -> WP's
+
 
 .. function:: _apply_SEAR_2(question_postagged: List[Tuple[str, str]])
+
+   SEAR 2: What NOUN -> Which NOUN
 
 
 .. function:: _apply_SEAR_3(question_tokenized: List[str])
 
+   SEAR 3: color -> colour
+
 
 .. function:: _apply_SEAR_4(question_postagged: List[Tuple[str, str]])
+
+   SEAR 4: ADV VBZ -> ADV's
 
 
 .. function:: inputs_for_question_sears(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample) -> Tuple[Union[vqa_benchmarking_backend.datasets.dataset.DataSample, None], Union[vqa_benchmarking_backend.datasets.dataset.DataSample, None], Union[vqa_benchmarking_backend.datasets.dataset.DataSample, None], Union[vqa_benchmarking_backend.datasets.dataset.DataSample, None]]

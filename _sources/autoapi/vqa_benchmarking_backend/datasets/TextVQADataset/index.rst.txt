@@ -31,17 +31,17 @@ Functions
 
 .. function:: preprocess_question(question: str) -> List[str]
 
-   Remove punctuation and make everything lower case
+   Removes punctuation and make everything lower case
 
 
 .. function:: load_img(path: str, transform=None) -> numpy.ndarray
 
-   Load an image using module ``cv2``
+   Loads an image using module ``cv2``
 
 
 .. function:: load_img_feats(path: str) -> torch.FloatTensor
 
-   Load a numpy array containing image features
+   Loads a numpy array containing image features
 
 
 .. function:: answer_score(num_humans) -> float
@@ -93,7 +93,7 @@ Functions
 
       Loads data from TextVQA json files
       Returns:
-          * data: list of ``CLEVRDataSample``
+          * data: list of ``TextVQADataSample``
           * qid_to_sample: mapping of question id to data sample
           * question_vocab: ``Vocabulary`` of all unique words occuring in the data
           * answer_vocab: ``Vocabulary`` of all unique answers

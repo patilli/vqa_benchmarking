@@ -168,16 +168,16 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.sear._apply_SEAR_1" title="vqa_benchmarking_backend.metrics.sear._apply_SEAR_1"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_apply_SEAR_1</span></code></a>(question_postagged: List[Tuple[str, str]])</p></td>
-<td><p></p></td>
+<td><p>SEAR 1: WP VBZ -&gt; WP’s</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.sear._apply_SEAR_2" title="vqa_benchmarking_backend.metrics.sear._apply_SEAR_2"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_apply_SEAR_2</span></code></a>(question_postagged: List[Tuple[str, str]])</p></td>
-<td><p></p></td>
+<td><p>SEAR 2: What NOUN -&gt; Which NOUN</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.sear._apply_SEAR_3" title="vqa_benchmarking_backend.metrics.sear._apply_SEAR_3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_apply_SEAR_3</span></code></a>(question_tokenized: List[str])</p></td>
-<td><p></p></td>
+<td><p>SEAR 3: color -&gt; colour</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.sear._apply_SEAR_4" title="vqa_benchmarking_backend.metrics.sear._apply_SEAR_4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">_apply_SEAR_4</span></code></a>(question_postagged: List[Tuple[str, str]])</p></td>
-<td><p></p></td>
+<td><p>SEAR 4: ADV VBZ -&gt; ADV’s</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.metrics.sear.inputs_for_question_sears" title="vqa_benchmarking_backend.metrics.sear.inputs_for_question_sears"><code class="xref py py-obj docutils literal notranslate"><span class="pre">inputs_for_question_sears</span></code></a>(current_sample: vqa_benchmarking_backend.datasets.dataset.DataSample) → Tuple[Union[vqa_benchmarking_backend.datasets.dataset.DataSample, None], Union[vqa_benchmarking_backend.datasets.dataset.DataSample, None], Union[vqa_benchmarking_backend.datasets.dataset.DataSample, None], Union[vqa_benchmarking_backend.datasets.dataset.DataSample, None]]</p></td>
 <td><p>Creates inputs where semantically equivalent changes are applied to the input questions</p></td>
@@ -190,22 +190,26 @@
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.metrics.sear._apply_SEAR_1">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.sear.</code><code class="sig-name descname">_apply_SEAR_1</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_postagged</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Tuple<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.sear._apply_SEAR_1" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>SEAR 1: WP VBZ -&gt; WP’s</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.metrics.sear._apply_SEAR_2">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.sear.</code><code class="sig-name descname">_apply_SEAR_2</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_postagged</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Tuple<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.sear._apply_SEAR_2" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>SEAR 2: What NOUN -&gt; Which NOUN</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.metrics.sear._apply_SEAR_3">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.sear.</code><code class="sig-name descname">_apply_SEAR_3</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_tokenized</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.sear._apply_SEAR_3" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>SEAR 3: color -&gt; colour</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.metrics.sear._apply_SEAR_4">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.sear.</code><code class="sig-name descname">_apply_SEAR_4</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_postagged</span><span class="p">:</span> <span class="n">List<span class="p">[</span>Tuple<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.sear._apply_SEAR_4" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>SEAR 4: ADV VBZ -&gt; ADV’s</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.metrics.sear.inputs_for_question_sears">

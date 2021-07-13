@@ -32,14 +32,22 @@ Functions
 
 .. function:: preprocess_question(question: str) -> List[str]
 
+   Removes punctuation and make everything lower case
+
 
 .. function:: load_img(path: str, transform=None) -> numpy.ndarray
+
+   Loads an image using module ``cv2``
 
 
 .. function:: load_img_feats(path: str) -> torch.FloatTensor
 
+   Loads a numpy array containing image features
+
 
 .. function:: preprocess_answer(answer: str) -> str
+
+   Removes punctuation
 
 
 .. function:: answer_score(num_humans) -> float
@@ -52,16 +60,25 @@ Functions
 
    Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DataSample`
 
+   Class describing one data sample of the VQA2 dataset
+   Inheriting from ``DataSample``
+
    .. method:: image(self) -> numpy.ndarray
       :property:
+
+      Returns the image, if not present it loads it from ``self._image_path``
 
 
    .. method:: question_tokenized(self) -> List[str]
       :property:
 
+      Tokenize question by splitting it
+
 
    .. method:: question(self) -> str
       :property:
+
+      Return full question
 
 
 
@@ -70,19 +87,35 @@ Functions
 
    Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset`
 
+   Class describing the VQA2 dataset
+   Inheriting from ``DiagnosticDataset``
+
    .. method:: __len__(self)
 
 
    .. method:: _load_data(self, question_file: str, annotation_file: str, dataset_fraction: float, random_seed: int) -> Tuple[List[vqa_benchmarking_backend.datasets.dataset.DataSample], Dict[str, vqa_benchmarking_backend.datasets.dataset.DataSample], vqa_benchmarking_backend.utils.vocab.Vocabulary, vqa_benchmarking_backend.utils.vocab.Vocabulary]
 
+      Loads data from VQA json files
+      Returns:
+          * data: list of ``VQADataSample``
+          * qid_to_sample: mapping of question id to data sample
+          * question_vocab: ``Vocabulary`` of all unique words occuring in the data
+          * answer_vocab: ``Vocabulary`` of all unique answers
+
 
    .. method:: __getitem__(self, index) -> vqa_benchmarking_backend.datasets.dataset.DataSample
+
+      Returns a data sample
 
 
    .. method:: get_name(self) -> str
 
+      Returns the name of the dataset, required for file caching
+
 
    .. method:: class_idx_to_answer(self, class_idx: int) -> Union[str, None]
+
+      Get the answer string for a given class index from the ``self.idx2ans`` dictionary
 
 
 

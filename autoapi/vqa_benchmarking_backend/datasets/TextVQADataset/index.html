@@ -185,13 +185,13 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question" title="vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess_question</span></code></a>(question: str) → List[str]</p></td>
-<td><p>Remove punctuation and make everything lower case</p></td>
+<td><p>Removes punctuation and make everything lower case</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.load_img" title="vqa_benchmarking_backend.datasets.TextVQADataset.load_img"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_img</span></code></a>(path: str, transform=None) → numpy.ndarray</p></td>
-<td><p>Load an image using module <code class="docutils literal notranslate"><span class="pre">cv2</span></code></p></td>
+<td><p>Loads an image using module <code class="docutils literal notranslate"><span class="pre">cv2</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats" title="vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_img_feats</span></code></a>(path: str) → torch.FloatTensor</p></td>
-<td><p>Load a numpy array containing image features</p></td>
+<td><p>Loads a numpy array containing image features</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.answer_score" title="vqa_benchmarking_backend.datasets.TextVQADataset.answer_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">answer_score</span></code></a>(num_humans) → float</p></td>
 <td><p>Calculates VQA score in [0,1] depending on number of humans having given the same answer</p></td>
@@ -201,19 +201,19 @@
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.TextVQADataset.</code><code class="sig-name descname">preprocess_question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove punctuation and make everything lower case</p>
+<dd><p>Removes punctuation and make everything lower case</p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.load_img">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.TextVQADataset.</code><code class="sig-name descname">load_img</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">transform</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.load_img" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load an image using module <code class="docutils literal notranslate"><span class="pre">cv2</span></code></p>
+<dd><p>Loads an image using module <code class="docutils literal notranslate"><span class="pre">cv2</span></code></p>
 </dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.TextVQADataset.</code><code class="sig-name descname">load_img_feats</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; torch.FloatTensor<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats" title="Permalink to this definition">¶</a></dt>
-<dd><p>Load a numpy array containing image features</p>
+<dd><p>Loads a numpy array containing image features</p>
 </dd></dl>
 
 <dl class="py function">
@@ -267,7 +267,7 @@ Inheriting from <code class="docutils literal notranslate"><span class="pre">Dia
 Returns:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>data: list of <code class="docutils literal notranslate"><span class="pre">CLEVRDataSample</span></code></p></li>
+<li><p>data: list of <code class="docutils literal notranslate"><span class="pre">TextVQADataSample</span></code></p></li>
 <li><p>qid_to_sample: mapping of question id to data sample</p></li>
 <li><p>question_vocab: <code class="docutils literal notranslate"><span class="pre">Vocabulary</span></code> of all unique words occuring in the data</p></li>
 <li><p>answer_vocab: <code class="docutils literal notranslate"><span class="pre">Vocabulary</span></code> of all unique answers</p></li>
