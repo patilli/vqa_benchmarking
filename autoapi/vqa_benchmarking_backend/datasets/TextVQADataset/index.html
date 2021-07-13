@@ -168,10 +168,10 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample" title="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextVQADataSample</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Class describing one data sample of the TextVQA dataset</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset" title="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TextVQADataset</span></code></a></p></td>
-<td><p></p></td>
+<td><p>Class describing the TextVQA dataset</p></td>
 </tr>
 </tbody>
 </table>
@@ -185,13 +185,13 @@
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question" title="vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question"><code class="xref py py-obj docutils literal notranslate"><span class="pre">preprocess_question</span></code></a>(question: str) → List[str]</p></td>
-<td><p></p></td>
+<td><p>Remove punctuation and make everything lower case</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.load_img" title="vqa_benchmarking_backend.datasets.TextVQADataset.load_img"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_img</span></code></a>(path: str, transform=None) → numpy.ndarray</p></td>
-<td><p></p></td>
+<td><p>Load an image using module <code class="docutils literal notranslate"><span class="pre">cv2</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats" title="vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats"><code class="xref py py-obj docutils literal notranslate"><span class="pre">load_img_feats</span></code></a>(path: str) → torch.FloatTensor</p></td>
-<td><p></p></td>
+<td><p>Load a numpy array containing image features</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.TextVQADataset.answer_score" title="vqa_benchmarking_backend.datasets.TextVQADataset.answer_score"><code class="xref py py-obj docutils literal notranslate"><span class="pre">answer_score</span></code></a>(num_humans) → float</p></td>
 <td><p>Calculates VQA score in [0,1] depending on number of humans having given the same answer</p></td>
@@ -201,17 +201,20 @@
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.TextVQADataset.</code><code class="sig-name descname">preprocess_question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.preprocess_question" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Remove punctuation and make everything lower case</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.load_img">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.TextVQADataset.</code><code class="sig-name descname">load_img</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">transform</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.load_img" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load an image using module <code class="docutils literal notranslate"><span class="pre">cv2</span></code></p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats">
 <code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.TextVQADataset.</code><code class="sig-name descname">load_img_feats</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">path</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; torch.FloatTensor<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.load_img_feats" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Load a numpy array containing image features</p>
+</dd></dl>
 
 <dl class="py function">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.answer_score">
@@ -223,25 +226,31 @@
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample">
 <em class="property">class </em><code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.TextVQADataset.</code><code class="sig-name descname">TextVQADataSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>float<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">image_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">image_path</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">image_feat_path</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">image_transform</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.datasets.dataset.DataSample</span></code></a></p>
+<p>Class describing one data sample of the TextVQA dataset
+Inheriting from <code class="docutils literal notranslate"><span class="pre">DataSample</span></code></p>
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample.image">
 <em class="property">property </em><code class="sig-name descname">image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample.image" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the image, if not present it loads it from <code class="docutils literal notranslate"><span class="pre">self._image_path</span></code></p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample.question_tokenized">
 <em class="property">property </em><code class="sig-name descname">question_tokenized</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample.question_tokenized" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Tokenize question by splitting it</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample.question">
 <em class="property">property </em><code class="sig-name descname">question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample.question" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return full question</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample.__str__">
 <code class="sig-name descname">__str__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataSample.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Stringify object</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -249,45 +258,64 @@
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset">
 <em class="property">class </em><code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.TextVQADataset.</code><code class="sig-name descname">TextVQADataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_file</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">img_dir</span></em>, <em class="sig-param"><span class="n">img_feat_dir</span></em>, <em class="sig-param"><span class="n">idx2ans</span></em>, <em class="sig-param"><span class="n">transform</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">load_img_features</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="../dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset" title="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset</span></code></a></p>
+<p>Class describing the TextVQA dataset
+Inheriting from <code class="docutils literal notranslate"><span class="pre">DiagnosticDataset</span></code></p>
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset._load_data">
 <code class="sig-name descname">_load_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">question_file</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>List<span class="p">[</span><a class="reference internal" href="../dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a><span class="p">]</span><span class="p">, </span>Dict<span class="p">[</span>str<span class="p">, </span><a class="reference internal" href="../dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a><span class="p">]</span><span class="p">, </span><a class="reference internal" href="../../utils/vocab/index.html#vqa_benchmarking_backend.utils.vocab.Vocabulary" title="vqa_benchmarking_backend.utils.vocab.Vocabulary">vqa_benchmarking_backend.utils.vocab.Vocabulary</a><span class="p">, </span><a class="reference internal" href="../../utils/vocab/index.html#vqa_benchmarking_backend.utils.vocab.Vocabulary" title="vqa_benchmarking_backend.utils.vocab.Vocabulary">vqa_benchmarking_backend.utils.vocab.Vocabulary</a><span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset._load_data" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Loads data from TextVQA json files
+Returns:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>data: list of <code class="docutils literal notranslate"><span class="pre">CLEVRDataSample</span></code></p></li>
+<li><p>qid_to_sample: mapping of question id to data sample</p></li>
+<li><p>question_vocab: <code class="docutils literal notranslate"><span class="pre">Vocabulary</span></code> of all unique words occuring in the data</p></li>
+<li><p>answer_vocab: <code class="docutils literal notranslate"><span class="pre">Vocabulary</span></code> of all unique answers</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.__getitem__">
 <code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="../dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.__getitem__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a data sample</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.label_from_class">
 <code class="sig-name descname">label_from_class</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">class_index</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.label_from_class" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the answer string of a given class index</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.word_in_vocab">
 <code class="sig-name descname">word_in_vocab</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">word</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.word_in_vocab" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Checks if a word occured inside the <code class="docutils literal notranslate"><span class="pre">Vocabulary</span></code> dervied of all questions</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.__len__">
 <code class="sig-name descname">__len__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.__len__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the length of the TextVQADataset as in self.data</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.index_to_question_id">
 <code class="sig-name descname">index_to_question_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.index_to_question_id" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the index of a specific question id</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.get_name">
 <code class="sig-name descname">get_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.get_name" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns the name of the dataset, required for file caching</p>
+</dd></dl>
 
 <dl class="py method">
 <dt id="vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.class_idx_to_answer">
 <code class="sig-name descname">class_idx_to_answer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">class_idx</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>str<span class="p">, </span>None<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.TextVQADataset.TextVQADataset.class_idx_to_answer" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Get the answer string for a given class index from the <code class="docutils literal notranslate"><span class="pre">self.idx2ans</span></code> dictionary</p>
+</dd></dl>
 
 </dd></dl>
 
