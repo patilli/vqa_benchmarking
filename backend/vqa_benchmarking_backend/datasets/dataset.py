@@ -9,6 +9,9 @@ from torch.utils.data.dataset import Dataset
 
 
 class DataSample:
+    """
+    Superclass for data samples
+    """
     def __init__(self, question_id: str, question: str, answers: Dict[str, float], image_id: str, image_path: str, image_feat_path: str, image_transform = None) -> None:
         self._question_id = question_id
         self._question = question
@@ -84,57 +87,83 @@ class DataSample:
 
 
 class DiagnosticDataset(Dataset):
+    """
+    Superclass for datasets
+    """
     def __len__(self):
+        """
+        Returns length of dataset
+        """
         raise NotImplementedError()
 
     def __getitem__(self, index) -> DataSample:
+        """
+        Returns a data sample
+        """
         raise NotImplementedError()
 
-    # TODO for UI reasons: get ROI bousnding boxes + class labels / attribute labels 
-
     def get_name(self) -> str:
-        # Needed for file caching
+        """
+        Required for file caching
+        """
         raise NotImplementedError
 
     def class_idx_to_answer(self, class_idx: int) -> str:
+        """
+        Returns natural language answer for a class index
+        """
         raise NotImplementedError
 
 
 
 class DatasetModelAdapter:
     """
-    NOTE: when inheriting from this class, make sure to
-
+    Superclass for model adapters
+    When inheriting from this class, make sure to
         * move the model to the intended device
         * move the data to the intended device inside the _forward method
     """
 
     def get_name(self) -> str:
-        # Needed for file caching
+        """
+        Required for file caching
+        """
         raise NotImplementedError
 
     def get_output_size(self) -> int:
-        # number of classes in prediction
+        """
+        Amount of classes in prediction
+        """
         raise NotImplementedError
 
     def get_torch_module(self) -> torch.nn.Module:
-        # return the model
+        """
+        Return the model
+        """
         raise NotImplementedError
 
     def train(self):
-        # set model to train mode (for MC Uncertainty)
+        """
+        Set model to train mode (for MC Uncertainty)
+        """
         self.get_torch_module().train()
 
     def eval(self):
-        # set model to eval mode
+        """
+        Set model to eval mode
+        """
         self.get_torch_module().eval()
 
     def get_question_embedding(self, sample: DataSample) -> torch.FloatTensor:
-        # embed questions without full model run-through
+        """
+        Embed questions without full model run-through
+        """
         raise NotImplementedError
 
     def get_image_embedding(self, sample: DataSample) -> torch.FloatTensor:
-        # embed image without full model run-through
+        """
+        Embed image without full model run-through
+        """
         raise NotImplementedError
 
     def _forward(self, samples: List[DataSample]) -> torch.FloatTensor:
