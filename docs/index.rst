@@ -12,8 +12,3 @@ Welcome to VQA Benchmarking's documentation!
    installation
    started
    includeme
-
-.. automodule:: ../backend/vqa_benchmarking_backend/
-   :members:
-
-   
