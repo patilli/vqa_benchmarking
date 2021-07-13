@@ -13,8 +13,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
   
@@ -31,10 +30,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -95,6 +94,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Evaluate Metrics</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
 </ul>
 
             
@@ -165,7 +165,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="evaluate-metrics">
-<h1>Evaluate Metrics<a class="headerlink" href="#evaluate-metrics" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>Evaluate Metrics<a class="headerlink" href="#evaluate-metrics" title="Permalink to this headline">¶</a></h1>
 <p>To start the evaluation on a given list of metrics, you need to instantiate a dataset inherting from our <code class="docutils literal notranslate"><span class="pre">DiagnosticDataset</span></code>.
 The calculation starts by calling <code class="docutils literal notranslate"><span class="pre">calculate_metrics</span></code>, and pass the model adapter, dataset, output directory and amount of trials as parameters.
 The parameter <code class="docutils literal notranslate"><span class="pre">trials</span></code> refers to the number of monte carlo trials that are performed and averaged for respective metrics.</p>

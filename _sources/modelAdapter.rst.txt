@@ -1,6 +1,16 @@
 Write a Model Adapter
 =====================
 
+The interface between your model and the evaluation on our metrics and datasets is provided as a ``DatasetModelAdapter`` .
+An adapter wraps around a model and is required to return a probability distribution from its ``_forward()`` function.
+The ``_forward()`` function gets a list of ``DataSample`` that needs to be processed to fit your models input parameters.
+
+Some general getter functions are required, e.g. its name ``get_name()``, output size ``get_output_size()``, and the model itself ``get_torch_module()`` .
+The functions ``get_question_embedding()`` and ``get_image_embedding()`` should fill the properties ``question_features`` 
+and ``image_features`` of a ``DataSample`` object respectively in order to enable appyling noise onto the feature representations. 
+
+Now that we have a created a ``DatasetModelAdapter`` we can start evaluating, see :ref:`Evaluate Metrics` .
+
 .. code-block:: python
 
     class MyModelAdapter(DatasetModelAdapter):

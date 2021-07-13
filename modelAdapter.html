@@ -13,8 +13,7 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
   
@@ -31,10 +30,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -96,6 +95,7 @@
 <li class="toctree-l2"><a class="reference internal" href="evalMetrics.html">Evaluate Metrics</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="autoapi/index.html">API Reference</a></li>
 </ul>
 
             
@@ -167,6 +167,13 @@
             
   <div class="section" id="write-a-model-adapter">
 <h1>Write a Model Adapter<a class="headerlink" href="#write-a-model-adapter" title="Permalink to this headline">¶</a></h1>
+<p>The interface between your model and the evaluation on our metrics and datasets is provided as a <code class="docutils literal notranslate"><span class="pre">DatasetModelAdapter</span></code> .
+An adapter wraps around a model and is required to return a probability distribution from its <code class="docutils literal notranslate"><span class="pre">_forward()</span></code> function.
+The <code class="docutils literal notranslate"><span class="pre">_forward()</span></code> function gets a list of <code class="docutils literal notranslate"><span class="pre">DataSample</span></code> that needs to be processed to fit your models input parameters.</p>
+<p>Some general getter functions are required, e.g. its name <code class="docutils literal notranslate"><span class="pre">get_name()</span></code>, output size <code class="docutils literal notranslate"><span class="pre">get_output_size()</span></code>, and the model itself <code class="docutils literal notranslate"><span class="pre">get_torch_module()</span></code> .
+The functions <code class="docutils literal notranslate"><span class="pre">get_question_embedding()</span></code> and <code class="docutils literal notranslate"><span class="pre">get_image_embedding()</span></code> should fill the properties <code class="docutils literal notranslate"><span class="pre">question_features</span></code>
+and <code class="docutils literal notranslate"><span class="pre">image_features</span></code> of a <code class="docutils literal notranslate"><span class="pre">DataSample</span></code> object respectively in order to enable appyling noise onto the feature representations.</p>
+<p>Now that we have a created a <code class="docutils literal notranslate"><span class="pre">DatasetModelAdapter</span></code> we can start evaluating, see <a class="reference internal" href="evalMetrics.html#evaluate-metrics"><span class="std std-ref">Evaluate Metrics</span></a> .</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyModelAdapter</span><span class="p">(</span><span class="n">DatasetModelAdapter</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    NOTE: when inheriting from this class, make sure to</span>

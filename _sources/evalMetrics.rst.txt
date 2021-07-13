@@ -1,3 +1,5 @@
+.. _Evaluate Metrics:
+
 Evaluate Metrics
 ================
 
