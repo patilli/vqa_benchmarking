@@ -6,7 +6,9 @@ import torch
 
 
 def _apply_SEAR_1(question_postagged: List[Tuple[str, str]]):
-    # SEAR 1: WP VBZ -> WP's
+    """
+    SEAR 1: WP VBZ -> WP's
+    """
     output = ""
     applied = False
     idx = 0
@@ -33,7 +35,9 @@ def _apply_SEAR_1(question_postagged: List[Tuple[str, str]]):
 
 
 def _apply_SEAR_2(question_postagged: List[Tuple[str, str]]):
-    # SEAR 2: What NOUN -> Which NOUN
+    """
+    SEAR 2: What NOUN -> Which NOUN
+    """
     output = ""
     applied = False
     idx = 0
@@ -59,7 +63,9 @@ def _apply_SEAR_2(question_postagged: List[Tuple[str, str]]):
 
 
 def _apply_SEAR_3(question_tokenized: List[str]):
-    # SEAR 3: color -> colour
+    """
+    SEAR 3: color -> colour
+    """
     output = []
     applied = False
     for token in question_tokenized:
@@ -72,7 +78,9 @@ def _apply_SEAR_3(question_tokenized: List[str]):
 
 
 def _apply_SEAR_4(question_postagged: List[Tuple[str, str]]):
-    # SEAR 4: ADV VBZ -> ADV's
+    """
+    SEAR 4: ADV VBZ -> ADV's
+    """
     output = ""
     applied = False
     idx = 0

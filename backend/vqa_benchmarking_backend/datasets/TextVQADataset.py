@@ -14,7 +14,7 @@ from tqdm.auto import tqdm
 
 def preprocess_question(question: str) -> List[str]:
     """
-    Remove punctuation and make everything lower case
+    Removes punctuation and make everything lower case
     """
     return re.sub(
         r"([.,'!?\"()*#:;])",
@@ -24,7 +24,7 @@ def preprocess_question(question: str) -> List[str]:
 
 def load_img(path: str, transform = None) -> np.ndarray:
     """
-    Load an image using module ``cv2``
+    Loads an image using module ``cv2``
     """
     img = cv.imread(path)
     if transform:
@@ -33,7 +33,7 @@ def load_img(path: str, transform = None) -> np.ndarray:
 
 def load_img_feats(path: str) -> torch.FloatTensor:
     """
-    Load a numpy array containing image features
+    Loads a numpy array containing image features
     """
     # Format:
     # f['info']: image_id, objects_id (object class id per ROI), objects_conf (propabily in [0,1] per object id), attrs_id (attribute id per ROI)
@@ -140,7 +140,7 @@ class TextVQADataset(DiagnosticDataset):
         """
         Loads data from TextVQA json files
         Returns:
-            * data: list of ``CLEVRDataSample``
+            * data: list of ``TextVQADataSample``
             * qid_to_sample: mapping of question id to data sample
             * question_vocab: ``Vocabulary`` of all unique words occuring in the data
             * answer_vocab: ``Vocabulary`` of all unique answers

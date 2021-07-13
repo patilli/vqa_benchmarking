@@ -14,6 +14,9 @@ import random
 
 
 def preprocess_question(question: str) -> List[str]:
+    """
+    Removes punctuation and make everything lower case
+    """
     return re.sub(
         r"([.,'!?\"()*#:;])",
         '',
@@ -21,12 +24,18 @@ def preprocess_question(question: str) -> List[str]:
     ).replace('-', ' ').replace('/', ' ')
 
 def load_img(path: str, transform = None) -> np.ndarray:
+    """
+    Loads an image using module ``cv2``
+    """
     img = cv.imread(path)
     if transform:
         img = transform(img)
     return img
 
 def load_img_feats(path: str) -> torch.FloatTensor:
+    """
+    Loads a numpy array containing image features
+    """
     # Format:
     # f['info']: image_id, objects_id (object class id per ROI), objects_conf (propabily in [0,1] per object id), attrs_id (attribute id per ROI)
     # f["num_bbox"]: number of ROIs
@@ -35,6 +44,9 @@ def load_img_feats(path: str) -> torch.FloatTensor:
     return torch.from_numpy(img_feats)
 
 def preprocess_answer(answer: str) -> str:
+    """
+    Removes punctuation
+    """
     answer = process_digit_article(process_punctuation(answer))
     answer = answer.replace(',', '')
     return answer
@@ -56,18 +68,28 @@ def answer_score(num_humans) -> float:
 
 
 class VQADataSample(DataSample):
+    """
+    Class describing one data sample of the VQA2 dataset
+    Inheriting from ``DataSample``
+    """
     def __init__(self, question_id: str, question: str, answers: Dict[str, float], image_id: str, image_path: str, image_feat_path: str, image_transform = None) -> None:
         super().__init__(question_id, question, answers, image_id, image_path, image_feat_path, image_transform)
         self._question = preprocess_question(question)
 
     @property
     def image(self) -> np.ndarray:
+        """
+        Returns the image, if not present it loads it from ``self._image_path``
+        """
         if isinstance(self._img, type(None)):
             self._img = load_img(self._image_path)
         return self._img
 
     @image.setter
     def image(self, image: np.ndarray):
+        """
+        Override image, resets image features since image was updated
+        """
         self._img = image
         # reset image features, since image updated
         self._img_feats = None
@@ -78,14 +100,23 @@ class VQADataSample(DataSample):
 
     @property
     def question_tokenized(self) -> List[str]:
+        """
+        Tokenize question by splitting it
+        """
         return self._question.split()
 
     @property
     def question(self) -> str:
+        """
+        Return full question
+        """
         return self._question
 
     @question.setter
     def question(self, question):
+        """
+        Reset tokens, token ids and embeddings since question updated
+        """
         self._question = preprocess_question(question)
         # reset tokens, token ids and embeddings since question updated
         self._q_tokens = self.question_tokenized
@@ -94,6 +125,10 @@ class VQADataSample(DataSample):
 
 
 class VQADataset(DiagnosticDataset):
+    """
+    Class describing the VQA2 dataset
+    Inheriting from ``DiagnosticDataset``
+    """
     def __init__(self, val_question_file: str, val_annotation_file: str,
                        answer_file: str,
                        img_dir, img_feat_dir,
@@ -133,9 +168,15 @@ class VQADataset(DiagnosticDataset):
         return len(self.data)
 
     def _load_data(self, question_file: str, annotation_file: str, dataset_fraction: float, random_seed: int) -> Tuple[List[DataSample], Dict[str, DataSample], Vocabulary, Vocabulary]:
-
+        """
+        Loads data from VQA json files
+        Returns:
+            * data: list of ``VQADataSample``
+            * qid_to_sample: mapping of question id to data sample
+            * question_vocab: ``Vocabulary`` of all unique words occuring in the data
+            * answer_vocab: ``Vocabulary`` of all unique answers
+        """
         random.seed(random_seed)
-        counter = 0 # TODO remove, testing purposes only
         data = []
 
         with open(question_file, 'r') as f:
@@ -161,9 +202,6 @@ class VQADataset(DiagnosticDataset):
                 for token in sample.question_tokenized:
                     self.q_vocab.add_token(token)
                 self.qid_to_sample[qid] = sample
-                counter += 1
-                # if counter == 500:
-                #     break
         with open(annotation_file, 'r') as f:
             # load annotations
             anns = json.load(f)['annotations']
@@ -189,13 +227,21 @@ class VQADataset(DiagnosticDataset):
         return data
    
     def __getitem__(self, index) -> DataSample:
+        """
+        Returns a data sample
+        """
         return self.data[index]
 
     def get_name(self) -> str:
-        # Needed for file caching
+        """
+        Returns the name of the dataset, required for file caching
+        """
         return self.name
 
     def class_idx_to_answer(self, class_idx: int) -> Union[str, None]:
+        """
+        Get the answer string for a given class index from the ``self.idx2ans`` dictionary
+        """
         if isinstance(next(iter(self._class_idx_to_answer.keys())), int):
             if class_idx in self._class_idx_to_answer:
                 return self._class_idx_to_answer[class_idx]
