@@ -36,8 +36,7 @@ release = '06.07.2021'
 # ones.
 extensions = [
     "sphinx_rtd_theme",
-    #'autoapi.extension',
-    'sphinx.ext.autodoc'
+    'autoapi.extension',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -62,12 +61,5 @@ html_theme = "sphinx_rtd_theme"
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# autoapi_type = 'python'
-# autoapi_dirs = [#'/Users/tillipl/UniStuttgart/Projects/VQA-Benchmarking/code/vqa_benchmarking_backend/vqa_benchmarking_backend/',
-#                 '/Users/tillipl/UniStuttgart/Projects/VQA-Benchmarking/code/vqa_benchmarking_backend/vqa_benchmarking_backend/datasets',
-#                 '/Users/tillipl/UniStuttgart/Projects/VQA-Benchmarking/code/vqa_benchmarking_backend/vqa_benchmarking_backend/metrics',
-#                 '/Users/tillipl/UniStuttgart/Projects/VQA-Benchmarking/code/vqa_benchmarking_backend/vqa_benchmarking_backend/tokenizers',
-#                 '/Users/tillipl/UniStuttgart/Projects/VQA-Benchmarking/code/vqa_benchmarking_backend/vqa_benchmarking_backend/utils']
-
-#autoapi_type = 'javascript'
-#autoapi_dirs = ['/Users/tillipl/UniStuttgart/Projects/VQA-Benchmarking/code/vqa-benchmarking/src']
+autoapi_type = 'python'
+autoapi_dirs = ['../backend/vqa_benchmarking_backend/']

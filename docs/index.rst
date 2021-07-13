@@ -13,7 +13,7 @@ Welcome to VQA Benchmarking's documentation!
    started
    includeme
 
-.. automodule:: my_project.main
+.. automodule:: ../backend/vqa_benchmarking_backend/
    :members:
 
    
