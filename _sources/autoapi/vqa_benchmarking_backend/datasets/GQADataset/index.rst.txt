@@ -30,11 +30,17 @@ Functions
 
 .. function:: preprocess_question(question: str) -> List[str]
 
+   Remove punctuation and make everything lower case
+
 
 .. function:: load_img(path: str, transform=None) -> numpy.ndarray
 
+   Load an image using module ``cv2``
+
 
 .. function:: load_img_feats(path: str) -> torch.FloatTensor
+
+   Load a numpy array containing image features
 
 
 .. class:: GQADataSample(question_id: str, question: str, answers: Dict[str, float], image_id: str, image_path: str, image_feat_path: str, image_transform=None)
@@ -42,17 +48,24 @@ Functions
 
    Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DataSample`
 
+   Class describing one data sample of the GQA dataset
+   Inheriting from ``DataSample``
+
    .. method:: image(self) -> numpy.ndarray
       :property:
+
+      Returns the image, if not present it loads it from ``self._image_path``
 
 
    .. method:: question_tokenized(self) -> List[str]
       :property:
 
+      Tokenize question by splitting it
+
 
    .. method:: __str__(self)
 
-      Return str(self).
+      Stringify object
 
 
 
@@ -61,28 +74,52 @@ Functions
 
    Bases: :py:obj:`vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset`
 
+   Class describing the GQA dataset
+   Inheriting from ``DiagnosticDataset``
+
    .. method:: _load_data(self, question_file: str) -> Tuple[List[vqa_benchmarking_backend.datasets.dataset.DataSample], Dict[str, vqa_benchmarking_backend.datasets.dataset.DataSample], vqa_benchmarking_backend.utils.vocab.Vocabulary, vqa_benchmarking_backend.utils.vocab.Vocabulary]
+
+      Loads data from GQA json files
+      Returns:
+          * data: list of ``GQADataSample``
+          * qid_to_sample: mapping of question id to data sample
+          * question_vocab: ``Vocabulary`` of all unique words occuring in the data
+          * answer_vocab: ``Vocabulary`` of all unique answers
 
 
    .. method:: __getitem__(self, index) -> vqa_benchmarking_backend.datasets.dataset.DataSample
 
+      Returns a data sample
+
 
    .. method:: label_from_class(self, class_index: int) -> str
+
+      Get the answer string of a given class index
 
 
    .. method:: word_in_vocab(self, word: str) -> bool
 
+      Checks if a word occured inside the ``Vocabulary`` dervied of all questions
+
 
    .. method:: __len__(self)
+
+      Returns the length of the GQADataset as in self.data
 
 
    .. method:: get_name(self) -> str
 
+      Returns the name of the dataset, required for file caching
+
 
    .. method:: index_to_question_id(self, index) -> str
 
+      Get the index of a specific question id
+
 
    .. method:: class_idx_to_answer(self, class_idx: int) -> Union[str, None]
+
+      Get the answer string for a given class index from the ``self.idx2ans`` dictionary
 
 
 

@@ -22,6 +22,8 @@ Classes
 .. class:: DataSample(question_id: str, question: str, answers: Dict[str, float], image_id: str, image_path: str, image_feat_path: str, image_transform=None)
 
 
+   Superclass for data samples
+
    .. method:: question_id(self) -> str
       :property:
 
@@ -59,54 +61,78 @@ Classes
 
    Bases: :py:obj:`torch.utils.data.dataset.Dataset`
 
+   Superclass for datasets
+
    .. method:: __len__(self)
       :abstractmethod:
+
+      Returns length of dataset
 
 
    .. method:: __getitem__(self, index) -> DataSample
       :abstractmethod:
 
+      Returns a data sample
+
 
    .. method:: get_name(self) -> str
       :abstractmethod:
+
+      Required for file caching
 
 
    .. method:: class_idx_to_answer(self, class_idx: int) -> str
       :abstractmethod:
 
+      Returns natural language answer for a class index
+
 
 
 .. class:: DatasetModelAdapter
 
-   NOTE: when inheriting from this class, make sure to
-
-   * move the model to the intended device
-   * move the data to the intended device inside the _forward method
+   Superclass for model adapters
+   When inheriting from this class, make sure to
+       * move the model to the intended device
+       * move the data to the intended device inside the _forward method
 
    .. method:: get_name(self) -> str
       :abstractmethod:
+
+      Required for file caching
 
 
    .. method:: get_output_size(self) -> int
       :abstractmethod:
 
+      Amount of classes in prediction
+
 
    .. method:: get_torch_module(self) -> torch.nn.Module
       :abstractmethod:
 
+      Return the model
+
 
    .. method:: train(self)
 
+      Set model to train mode (for MC Uncertainty)
+
 
    .. method:: eval(self)
+
+      Set model to eval mode
 
 
    .. method:: get_question_embedding(self, sample: DataSample) -> torch.FloatTensor
       :abstractmethod:
 
+      Embed questions without full model run-through
+
 
    .. method:: get_image_embedding(self, sample: DataSample) -> torch.FloatTensor
       :abstractmethod:
+
+      Embed image without full model run-through
 
 
    .. method:: _forward(self, samples: List[DataSample]) -> torch.FloatTensor
