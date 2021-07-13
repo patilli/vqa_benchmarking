@@ -101,14 +101,14 @@ class VQADataSample(DataSample):
     @property
     def question_tokenized(self) -> List[str]:
         """
-        Tokenize question by splitting it
+        Returns tokenized question
         """
         return self._question.split()
 
     @property
     def question(self) -> str:
         """
-        Return full question
+        Returns full question
         """
         return self._question
 

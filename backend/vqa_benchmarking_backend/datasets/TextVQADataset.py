@@ -78,7 +78,7 @@ class TextVQADataSample(DataSample):
     @image.setter
     def image(self, image: np.ndarray):
         """
-        Override image, resets image features since image was updated
+        Overrides image, resets image features since image was updated
         """
         self._img = image
         # reset image features, since image updated
@@ -87,21 +87,21 @@ class TextVQADataSample(DataSample):
     @property
     def question_tokenized(self) -> List[str]:
         """
-        Tokenize question by splitting it
+        Returns tokenized question
         """
         return self._question.split()
 
     @property
     def question(self) -> str:
         """
-        Return full question
+        Returns full question
         """
         return self._question
 
     @question.setter
     def question(self, question):
         """
-        Reset tokens, token ids and embeddings since question updated
+        Resets tokens, token ids and embeddings since question updated
         """
         self._question = preprocess_question(question)
         # reset tokens, token ids and embeddings since question updated
