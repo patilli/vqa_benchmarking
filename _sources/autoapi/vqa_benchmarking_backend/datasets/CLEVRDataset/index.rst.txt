@@ -60,13 +60,13 @@ Functions
    .. method:: question_tokenized(self) -> List[str]
       :property:
 
-      Tokenize question by splitting it
+      Returns tokenized question
 
 
    .. method:: question(self) -> str
       :property:
 
-      Return full question
+      Returns full question
 
 
    .. method:: __str__(self)

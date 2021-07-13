@@ -60,7 +60,7 @@ Functions
    .. method:: question_tokenized(self) -> List[str]
       :property:
 
-      Tokenize question by splitting it
+      Returns tokenized question
 
 
    .. method:: __str__(self)
