@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>vqa_benchmarking_backend.tokenizers.vqatokenizer &mdash; VQA Benchmarking 06.07.2021 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> VQA Benchmarking
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">VQA Benchmarking</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.tokenizers.vqatokenizer</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/vqa_benchmarking_backend/tokenizers/vqatokenizer/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-vqa_benchmarking_backend.tokenizers.vqatokenizer">
+<span id="vqa-benchmarking-backend-tokenizers-vqatokenizer"></span><h1><a class="reference internal" href="#module-vqa_benchmarking_backend.tokenizers.vqatokenizer" title="vqa_benchmarking_backend.tokenizers.vqatokenizer"><code class="xref py py-mod docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.tokenizers.vqatokenizer</span></code></a><a class="headerlink" href="#module-vqa_benchmarking_backend.tokenizers.vqatokenizer" title="Permalink to this headline">¶</a></h1>
+<p>This code is based on OpenVQA (<a class="reference external" href="https://github.com/MILVLG/openvqa">https://github.com/MILVLG/openvqa</a>)</p>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.process_punctuation" title="vqa_benchmarking_backend.tokenizers.vqatokenizer.process_punctuation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_punctuation</span></code></a>(inText)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.process_digit_article" title="vqa_benchmarking_backend.tokenizers.vqatokenizer.process_digit_article"><code class="xref py py-obj docutils literal notranslate"><span class="pre">process_digit_article</span></code></a>(inText)</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.contractions" title="vqa_benchmarking_backend.tokenizers.vqatokenizer.contractions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">contractions</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.manual_map" title="vqa_benchmarking_backend.tokenizers.vqatokenizer.manual_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">manual_map</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.articles" title="vqa_benchmarking_backend.tokenizers.vqatokenizer.articles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">articles</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.period_strip" title="vqa_benchmarking_backend.tokenizers.vqatokenizer.period_strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">period_strip</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.comma_strip" title="vqa_benchmarking_backend.tokenizers.vqatokenizer.comma_strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">comma_strip</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.punct" title="vqa_benchmarking_backend.tokenizers.vqatokenizer.punct"><code class="xref py py-obj docutils literal notranslate"><span class="pre">punct</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py data">
+<dt id="vqa_benchmarking_backend.tokenizers.vqatokenizer.contractions">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.tokenizers.vqatokenizer.</code><code class="sig-name descname">contractions</code><a class="headerlink" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.contractions" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="vqa_benchmarking_backend.tokenizers.vqatokenizer.manual_map">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.tokenizers.vqatokenizer.</code><code class="sig-name descname">manual_map</code><a class="headerlink" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.manual_map" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="vqa_benchmarking_backend.tokenizers.vqatokenizer.articles">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.tokenizers.vqatokenizer.</code><code class="sig-name descname">articles</code><em class="property"> = ['a', 'an', 'the']</em><a class="headerlink" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.articles" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="vqa_benchmarking_backend.tokenizers.vqatokenizer.period_strip">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.tokenizers.vqatokenizer.</code><code class="sig-name descname">period_strip</code><a class="headerlink" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.period_strip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="vqa_benchmarking_backend.tokenizers.vqatokenizer.comma_strip">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.tokenizers.vqatokenizer.</code><code class="sig-name descname">comma_strip</code><a class="headerlink" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.comma_strip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py data">
+<dt id="vqa_benchmarking_backend.tokenizers.vqatokenizer.punct">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.tokenizers.vqatokenizer.</code><code class="sig-name descname">punct</code><em class="property"> = [';', '/', '[', ']', '&quot;', '{', '}', '(', ')', '=', '+', '\\', '_', '-', '&gt;', '&lt;', '&#64;', '`', ',',...</em><a class="headerlink" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.punct" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.tokenizers.vqatokenizer.process_punctuation">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.tokenizers.vqatokenizer.</code><code class="sig-name descname">process_punctuation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inText</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.process_punctuation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt id="vqa_benchmarking_backend.tokenizers.vqatokenizer.process_digit_article">
+<code class="sig-prename descclassname">vqa_benchmarking_backend.tokenizers.vqatokenizer.</code><code class="sig-name descname">process_digit_article</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inText</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.tokenizers.vqatokenizer.process_digit_article" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Dirk Väth and Pascal Tilli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

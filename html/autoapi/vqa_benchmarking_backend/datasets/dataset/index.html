@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>vqa_benchmarking_backend.datasets.dataset &mdash; VQA Benchmarking 06.07.2021 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/jquery.js"></script>
+        <script src="../../../../_static/underscore.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> VQA Benchmarking
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">API Reference</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">VQA Benchmarking</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.datasets.dataset</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../../_sources/autoapi/vqa_benchmarking_backend/datasets/dataset/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-vqa_benchmarking_backend.datasets.dataset">
+<span id="vqa-benchmarking-backend-datasets-dataset"></span><h1><a class="reference internal" href="#module-vqa_benchmarking_backend.datasets.dataset" title="vqa_benchmarking_backend.datasets.dataset"><code class="xref py py-mod docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.datasets.dataset</span></code></a><a class="headerlink" href="#module-vqa_benchmarking_backend.datasets.dataset" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Permalink to this headline">¶</a></h3>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSample</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset" title="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiagnosticDataset</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter" title="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DatasetModelAdapter</span></code></a></p></td>
+<td><p>NOTE: when inheriting from this class, make sure to</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="py class">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample">
+<em class="property">class </em><code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.dataset.</code><code class="sig-name descname">DataSample</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">question_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">question</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">answers</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>float<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">image_id</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">image_path</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">image_feat_path</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">image_transform</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample.question_id">
+<em class="property">property </em><code class="sig-name descname">question_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample.question_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample.question">
+<em class="property">property </em><code class="sig-name descname">question</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample.question" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample.answers">
+<em class="property">property </em><code class="sig-name descname">answers</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; Dict<span class="p">[</span>str<span class="p">, </span>float<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample.answers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample.image_id">
+<em class="property">property </em><code class="sig-name descname">image_id</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample.image_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample.image">
+<em class="property">property </em><code class="sig-name descname">image</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample.image" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample.image_features">
+<em class="property">property </em><code class="sig-name descname">image_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>torch.FloatTensor<span class="p">, </span>None<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample.image_features" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample.question_tokenized">
+<em class="property">property </em><code class="sig-name descname">question_tokenized</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>str<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample.question_tokenized" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DataSample.question_features">
+<em class="property">property </em><code class="sig-name descname">question_features</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>None<span class="p">, </span>torch.FloatTensor<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DataSample.question_features" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset">
+<em class="property">class </em><code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.dataset.</code><code class="sig-name descname">DiagnosticDataset</code><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">torch.utils.data.dataset.Dataset</span></code></p>
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset.__len__">
+<em class="property">abstract </em><code class="sig-name descname">__len__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset.__getitem__">
+<em class="property">abstract </em><code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">index</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">DataSample</a><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset.get_name">
+<em class="property">abstract </em><code class="sig-name descname">get_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset.class_idx_to_answer">
+<em class="property">abstract </em><code class="sig-name descname">class_idx_to_answer</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">class_idx</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset.class_idx_to_answer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter">
+<em class="property">class </em><code class="sig-prename descclassname">vqa_benchmarking_backend.datasets.dataset.</code><code class="sig-name descname">DatasetModelAdapter</code><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>NOTE: when inheriting from this class, make sure to</p>
+<ul class="simple">
+<li><p>move the model to the intended device</p></li>
+<li><p>move the data to the intended device inside the _forward method</p></li>
+</ul>
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_name">
+<em class="property">abstract </em><code class="sig-name descname">get_name</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_output_size">
+<em class="property">abstract </em><code class="sig-name descname">get_output_size</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_output_size" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_torch_module">
+<em class="property">abstract </em><code class="sig-name descname">get_torch_module</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span> &#x2192; torch.nn.Module<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_torch_module" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.train">
+<code class="sig-name descname">train</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.train" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.eval">
+<code class="sig-name descname">eval</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.eval" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_question_embedding">
+<em class="property">abstract </em><code class="sig-name descname">get_question_embedding</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">sample</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">DataSample</a></span></em><span class="sig-paren">)</span> &#x2192; torch.FloatTensor<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_question_embedding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_image_embedding">
+<em class="property">abstract </em><code class="sig-name descname">get_image_embedding</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">sample</span><span class="p">:</span> <span class="n"><a class="reference internal" href="#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">DataSample</a></span></em><span class="sig-paren">)</span> &#x2192; torch.FloatTensor<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.get_image_embedding" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter._forward">
+<em class="property">abstract </em><code class="sig-name descname">_forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">samples</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">DataSample</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; torch.FloatTensor<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter._forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overwrite this function to connect a list of samples to your model.
+IMPORTANT:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Make sure that the outputs are probabilities, not logits!</p></li>
+<li><p>Make sure that the data samples are using the samples’ question embedding field, if assigned (instead of re-calculating them, they could be modified from feature space methods)</p></li>
+<li><p>Make sure that the data samples are moved to the intended device here</p></li>
+</ul>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.forward">
+<code class="sig-name descname">forward</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">samples</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference internal" href="#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">DataSample</a><span class="p">]</span></span></em><span class="sig-paren">)</span> &#x2192; torch.FloatTensor<a class="headerlink" href="#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return samples x classes results AS PROBABILITIES</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Dirk Väth and Pascal Tilli.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
