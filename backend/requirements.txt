@@ -1,0 +1,40 @@
+blis @ file:///Users/runner/miniforge3/conda-bld/cython-blis_1612082819053/work
+brotlipy==0.7.0
+catalogue @ file:///Users/runner/miniforge3/conda-bld/catalogue_1619778609867/work
+certifi==2021.5.30
+cffi @ file:///Users/runner/miniforge3/conda-bld/cffi_1625835561163/work
+chardet @ file:///Users/runner/miniforge3/conda-bld/chardet_1610093477312/work
+click==7.1.2
+colorama @ file:///home/conda/feedstock_root/build_artifacts/colorama_1602866480661/work
+cryptography @ file:///Users/runner/miniforge3/conda-bld/cryptography_1616851512278/work
+cymem @ file:///Users/runner/miniforge3/conda-bld/cymem_1625012265028/work
+idna @ file:///home/conda/feedstock_root/build_artifacts/idna_1593328102638/work
+Jinja2 @ file:///home/conda/feedstock_root/build_artifacts/jinja2_1621419064915/work
+MarkupSafe @ file:///Users/runner/miniforge3/conda-bld/markupsafe_1621455730621/work
+murmurhash @ file:///Users/runner/miniforge3/conda-bld/murmurhash_1625038111175/work
+numpy @ file:///Users/runner/miniforge3/conda-bld/numpy_1624399905521/work
+olefile==0.46
+packaging @ file:///home/conda/feedstock_root/build_artifacts/packaging_1625323647219/work
+pathy @ file:///home/conda/feedstock_root/build_artifacts/pathy_1624897245984/work
+Pillow @ file:///opt/concourse/worker/volumes/live/3e3d5813-e4fa-40da-6aa3-5a29558f718e/volume/pillow_1602788694493/work
+preshed @ file:///Users/runner/miniforge3/conda-bld/preshed_1625049089411/work
+pycparser @ file:///home/conda/feedstock_root/build_artifacts/pycparser_1593275161868/work
+pydantic @ file:///Users/runner/miniforge3/conda-bld/pydantic_1620820005338/work
+pyOpenSSL @ file:///home/conda/feedstock_root/build_artifacts/pyopenssl_1608055815057/work
+pyparsing==2.4.7
+PySocks @ file:///Users/runner/miniforge3/conda-bld/pysocks_1610291493748/work
+requests @ file:///home/conda/feedstock_root/build_artifacts/requests_1608156231189/work
+shellingham @ file:///home/conda/feedstock_root/build_artifacts/shellingham_1612179560728/work
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
+smart-open @ file:///home/conda/feedstock_root/build_artifacts/smart_open_1623731621217/work
+spacy @ file:///Users/runner/miniforge3/conda-bld/spacy_1625732881653/work
+spacy-legacy @ file:///home/conda/feedstock_root/build_artifacts/spacy-legacy_1625687473390/work
+srsly @ file:///Users/runner/miniforge3/conda-bld/srsly_1618231692763/work
+thinc @ file:///Users/runner/miniforge3/conda-bld/thinc_1625387117040/work
+torch==1.9.0
+tqdm @ file:///home/conda/feedstock_root/build_artifacts/tqdm_1625664838498/work
+typer @ file:///home/conda/feedstock_root/build_artifacts/typer_1609874382867/work
+typing-extensions @ file:///home/conda/feedstock_root/build_artifacts/typing_extensions_1622748266870/work
+urllib3 @ file:///home/conda/feedstock_root/build_artifacts/urllib3_1624634538755/work
+vqabenchmarking @ file:///Users/tillipl/UniStuttgart/SimTech/vqabenchmarking/vqa_benchmarking/backend
+wasabi @ file:///home/conda/feedstock_root/build_artifacts/wasabi_1612156086016/work
