@@ -425,10 +425,7 @@ export default {
                                               }) 
       }).then(res => res.json()).then(function(data) {
         that.sample = data;
-        console.log("sample data");
-        console.log(data);
         that.setImagePath(data.imageId[0]);
-        console.log(that.image_path);
       });
       
   },

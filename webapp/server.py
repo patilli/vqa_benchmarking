@@ -84,6 +84,14 @@ def _get_avg_sears(conn: sqlite3.Connection):
 def get_overview_data(connections: Dict[str, Dict[str, sqlite3.Connection]]):
     print("Creating cache for OverviewHandler...")
     cache = {"summary": [], "detail": {}}
+
+    # load model info
+    model_info = {}
+    file = os.path.join(output_path, 'model_info.json')
+    with open(file, 'r') as f:
+        model_info = json.load(f)
+
+    # load dataset info
     dataset_list = set()
     model_list = set()
     for dataset in connections:
@@ -114,7 +122,7 @@ def get_overview_data(connections: Dict[str, Dict[str, sqlite3.Connection]]):
             cache['detail'][model].append({
                 "model": {
                     "name": model,
-                    "parameters": -1 # TODO save model info somewhere
+                    "parameters": model_info[model]
                 },
                 "dataset": {
                     "name": dataset,
@@ -154,7 +162,7 @@ def get_overview_data(connections: Dict[str, Dict[str, sqlite3.Connection]]):
         cache['summary'].append({
             "model": {
                 "name": model,
-                "parameters": -1 # TODO save model info somewhere
+                "parameters": model_info[model]
             },
             "dataset": {
                 "name": dataset,
@@ -337,7 +345,6 @@ class FilterHandler(CorsJsonHandler):
                         WHERE acc.top_1_accuracy >= {minValue} AND acc.top_1_accuracy <= {maxValue}
                         GROUP BY acc.question_id
                         ORDER BY acc.top_1_accuracy ASC"""
-            # TODO write results
         elif 'bias' in metric:
             sql = f"""SELECT bias.question_id, q.question, GROUP_CONCAT(DISTINCT gt.class), GROUP_CONCAT(DISTINCT bias.predicted_class), bias.score
                         FROM {metric} as bias

@@ -150,7 +150,6 @@ export default {
     },
     getSamples() {
       let that = this;
-      console.log('requesting', this.model, this.dataset, this.metric);
       fetch('http://localhost:44123/filter', {method: 'POST', 
                                                 headers: {
                                                 'Content-Type': 'application/json'

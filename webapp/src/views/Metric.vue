@@ -104,7 +104,6 @@ export default {
     },
     getChart() {
       let that = this;
-      console.log(this.model, this.dataset, this.metric);
       fetch('http://localhost:44123/metricsdetail', {method: 'POST', 
                                                      headers: {
                                                       'Content-Type': 'application/json'
@@ -152,10 +151,8 @@ export default {
     },
     plotStackedBarGraph() {
       Plotly.purge('myRow');
-      console.log(this.opentemp)
       const temp = this.opentemp.find( ({ name,dataset }) => name === this.metric 
             && dataset.name === this.dataset );
-      console.log(temp)
       if(temp !== undefined){      
             var data = [
               {
@@ -172,7 +169,6 @@ export default {
               margin: {"t": 0, "b": 0, "l": 0, "r": 0},
               showlegend: true
             };
-            console.log(data)
             Plotly.newPlot("myRow", data, layout);
       }  
     },

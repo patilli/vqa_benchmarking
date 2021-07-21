@@ -2,12 +2,14 @@ from typing import List, Tuple
 import sqlite3
 import os
 import random
+import json
 
 from vqa_benchmarking_backend.datasets.dataset import DatasetModelAdapter, DiagnosticDataset, DataSample
 from vqa_benchmarking_backend.metrics.bias import eval_bias, inputs_for_image_bias_featurespace, inputs_for_image_bias_wordspace, inputs_for_question_bias_featurespace, inputs_for_question_bias_imagespace
 from vqa_benchmarking_backend.metrics.robustness import eval_robustness, inputs_for_image_robustness_featurespace, inputs_for_image_robustness_imagespace, inputs_for_question_robustness_featurespace, inputs_for_question_robustness_wordspace
 from vqa_benchmarking_backend.metrics.sear import eval_sears, inputs_for_question_sears
 from vqa_benchmarking_backend.metrics.uncertainty import certainty
+from vqa_benchmarking_backend.metrics.model_info import model_info
 from tqdm import tqdm
 import torch
 
@@ -240,12 +242,27 @@ def _write_table(db: sqlite3.Connection, metric_name: str, data: dict, overwrite
     db.executemany(sql_insert, insert_values)
     db.commit()
 
+
+def write_model_info(output_path: str, adapter: DatasetModelAdapter):
+    model_info = {}
+    file = os.path.join(output_path, 'model_info.json')
+    if os.path.isfile(file):
+        # read existing model info from other models to not forget (overwrite)
+        with open(file, 'r') as f:
+            model_info = json.load(f)
+    # append model info
+    model_info[adapter.get_name()] = model_info(net=adapter.get_torch_module(), only_trainable=True)
+    with open(file, 'w') as f:
+        json.dump(model_info)
+
+
+
 @torch.no_grad()
 def calculate_metrics(adapter: DatasetModelAdapter, dataset: DiagnosticDataset, metrics: List[str], output_path: str, trials: int = 15,
                       min_tokens: int = 3, max_tokens: int = 10, start_sample: int = 0, max_samples: int = -1):
     """
     Args:
-        metrics: choice between ['accuracy',
+        metrics: choice between [p'accuracy',
                                  'question_bias_featurespace', 'question_bias_imagespace',
                                  'image_bias_featurespace', 'image_bias_wordspace',
                                  'image_robustness_imagespace', 'image_robustness_featurespace',
@@ -269,6 +286,7 @@ def calculate_metrics(adapter: DatasetModelAdapter, dataset: DiagnosticDataset, 
     cache_certainty = {}
 
     db = _get_db_connection(output_path=output_path, adapter=adapter, dataset=dataset)
+    write_model_info(output_path=output_path, adapter=adapter)
     adapter.eval()
 
     if 'question_bias_featurespace' in metrics or 'image_robustness_featurespace' in metrics:

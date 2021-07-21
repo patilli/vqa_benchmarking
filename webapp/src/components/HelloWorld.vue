@@ -65,12 +65,6 @@ export default {
         let model = item.model.name;
         item.detail = data.detail[model];
       });
-    that.mainData[0].model.parameters = 201723191;
-    that.mainData[1].model.parameters = 211166871;
-    that.mainData[2].model.parameters = 112167258;
-    that.mainData[3].model.parameters = 185847022;
-    console.log(that.mainData)
-    console.log("maindata")
     });
   },
   methods: {
@@ -87,8 +81,6 @@ export default {
         }
       },
       rowClicked(record, index) {
-        console.log('row clicked');
-        console.log(record, index);
         this.$router.push({
           name: "Metric",
           props: true,
