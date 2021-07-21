@@ -45,6 +45,7 @@ Web Interface
 -------------
 
 The web application is written with ``vue.js``.
+It requires a javascript package manager like ``npm`` to be installed on your machine.
 
 Build
 ^^^^^
