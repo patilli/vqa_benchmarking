@@ -27,33 +27,65 @@ Classes
    .. method:: question_id(self) -> str
       :property:
 
+      Returns: 
+      Question id as a string.
+
 
    .. method:: question(self) -> str
       :property:
+
+      Returns:
+      Original question as string.
 
 
    .. method:: answers(self) -> Dict[str, float]
       :property:
 
+      Returns:
+      A mapping from each answer (ground truth) as string to the respecive score.
+      E.g. if you have only one answer per question, the score is 1.0 and the return value might look like this: 
+          {'yellow': 1.0}
+      But if you have multiple possible answers per question, some answers might be better (e.g. higher inter-annotator agreement, like in VQA2):
+          {'yellow': 0.9, 'gold': 0.1}
+
 
    .. method:: image_id(self) -> str
       :property:
+
+      Returns:
+      Image identifier as string.
+      Neccessary for loading the corresponding image for this question-image pair later.
 
 
    .. method:: image(self) -> numpy.ndarray
       :property:
 
+      Returns:
+      Image data as numpy array, e.g. load using the pillow library or opencv.
+      NOTE: This property has to be overriden to load your custom image data.
+
 
    .. method:: image_features(self) -> Union[torch.FloatTensor, None]
       :property:
+
+      Returns:
+      Processed image features as float tensor.
+      Recommended assignment in the vqa_benchmarking_backend.datasets.dataset.ModelAdapter.get_image_embedding method.
 
 
    .. method:: question_tokenized(self) -> List[str]
       :property:
 
+      Returns:
+      Tokenized version of the original question.
+
 
    .. method:: question_features(self) -> Union[None, torch.FloatTensor]
       :property:
+
+      Returns:
+      Processed question features / embedding as float tensor.
+      Recommended assignment in the vqa_benchmarking_backend.datasets.dataset.ModelAdapter.get_question_embedding method.
 
 
 
@@ -61,30 +93,37 @@ Classes
 
    Bases: :py:obj:`torch.utils.data.dataset.Dataset`
 
-   Superclass for datasets
+   Superclass for custom datasets, inheriting from original pytorch dataset class.
+   Thus, the same functions like `__len__` and `__getitem__` have to be overwritten as in any pytorch dataset with index-based access.
+   Check the pytorch documentation for more details.
 
    .. method:: __len__(self)
       :abstractmethod:
 
-      Returns length of dataset
+      Returns size of dataset (how many samples).
+      NOTE: has to be overridden!
 
 
    .. method:: __getitem__(self, index) -> DataSample
       :abstractmethod:
 
-      Returns a data sample
+      Returns a single data sample.
+      NOTE: has to be overridden!
 
 
    .. method:: get_name(self) -> str
       :abstractmethod:
 
-      Required for file caching
+      Required for file caching, e.g. naming databases and displaying corresponding entries in the webapp.
+      NOTE: has to be overridden!
 
 
    .. method:: class_idx_to_answer(self, class_idx: int) -> str
       :abstractmethod:
 
-      Returns natural language answer for a class index
+      Returns:
+      Natural language answer from a class index.
+      NOTE: has to be overridden!
 
 
 
@@ -98,47 +137,52 @@ Classes
    .. method:: get_name(self) -> str
       :abstractmethod:
 
-      Required for file caching
+      Required for file caching, e.g. naming databases and displaying corresponding entries in the webapp.
+      NOTE: has to be overridden!
 
 
    .. method:: get_output_size(self) -> int
       :abstractmethod:
 
-      Amount of classes in prediction
+      Size of answer space.
+      NOTE: has to be overridden!
 
 
    .. method:: get_torch_module(self) -> torch.nn.Module
       :abstractmethod:
 
-      Return the model
+      Return the pytorch VQA model
+      NOTE: has to be overridden!
 
 
    .. method:: train(self)
 
-      Set model to train mode (for MC Uncertainty)
+      Set VQA model to train mode (for MC Uncertainty)
 
 
    .. method:: eval(self)
 
-      Set model to eval mode
+      Set VQA model to eval mode
 
 
    .. method:: get_question_embedding(self, sample: DataSample) -> torch.FloatTensor
       :abstractmethod:
 
-      Embed questions without full model run-through
+      Embed questions without full model forward-pass.
+      NOTE: has to be overridden!
 
 
    .. method:: get_image_embedding(self, sample: DataSample) -> torch.FloatTensor
       :abstractmethod:
 
-      Embed image without full model run-through
+      Embed image without full model forward-pass.
+      NOTE: has to be overridden!
 
 
    .. method:: _forward(self, samples: List[DataSample]) -> torch.FloatTensor
       :abstractmethod:
 
-      Overwrite this function to connect a list of samples to your model.
+      Overwrite this function to transform a list of samples to fit your VQA model's required input format.
       IMPORTANT: 
           * Make sure that the outputs are probabilities, not logits!
           * Make sure that the data samples are using the samples' question embedding field, if assigned (instead of re-calculating them, they could be modified from feature space methods)

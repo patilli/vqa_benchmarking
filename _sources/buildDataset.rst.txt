@@ -11,13 +11,15 @@ We provide two classes that the new dataset needs to inherit from:
 Create new Data Samples
 -------------------------
 
-Each sample of a dataset is represented as an object of ``DataSample``.
+Each sample of a dataset is represented as an object of type ``vqa_benchmarking_backend.datasets.dataset.DataSample``.
 It stores all the relevant information, like the id's for the question and image, the tokenized question, the corresponding answer, 
 and the path to the image.
 
 The following code block contains an exemplary ``DataSample``
 
 .. code-block:: python
+
+    from vqa_benchmarking_backend.datasets.dataset import DataSample
 
     class MyDataSample(DataSample):
         def __init__(self, 
@@ -56,15 +58,16 @@ Create new Diagnostic Datasets
 
 An object of ``DiagnosticDataset`` requires the path to the image directory, a name for the dataset, and a dictionary 
 that contains a mapping of classifier index to the natural language answer string.
-The ``_load_data()`` function needs to be rewritten to match the desired format the dataset comes in.
+From the ``__getitem__`` accessor, an instance of your custom ``vqa_benchmarking_backend.datasets.dataset.DataSample`` class (as created above in the class ``MyDataSample``) should be returned.
+Here, the constructor loads all data using the ``_load_data`` method. You should create your own data loading function to match the data format for your dataset.
 The ``data`` property should be a list with objects of ``MyDataSample`` for each data entry from the original data format.
 
-The following code block contains an exemplary ``DiagnosticDataset``.
+The following code block contains an exemplary ``vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset``.
 
 .. code-block:: python
 
+    from vqa_benchmarking_backend.datasets.dataset import DiagnosticDataset
     from vqa_benchmarking_backend.utils.vocab import Vocabulary
-    from my_datasample import MyDataSample
 
     class MyDataset(DiagnosticDataset):
         def __init__(self, 

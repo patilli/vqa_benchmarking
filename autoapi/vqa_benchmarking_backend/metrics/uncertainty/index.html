@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../../../_static/graphviz.css" type="text/css" />
 
   
@@ -30,10 +32,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
         <script src="../../../../_static/jquery.js"></script>
         <script src="../../../../_static/underscore.js"></script>
         <script src="../../../../_static/doctools.js"></script>
-        <script src="../../../../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
 
@@ -173,8 +175,8 @@
 </tbody>
 </table>
 <dl class="py function">
-<dt id="vqa_benchmarking_backend.metrics.uncertainty.certainty">
-<code class="sig-prename descclassname">vqa_benchmarking_backend.metrics.uncertainty.</code><code class="sig-name descname">certainty</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dataset</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset" title="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset">vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset</a></span></em>, <em class="sig-param"><span class="n">adapter</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter" title="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter">vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter</a></span></em>, <em class="sig-param"><span class="n">sample</span><span class="p">:</span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample">vqa_benchmarking_backend.datasets.dataset.DataSample</a></span></em>, <em class="sig-param"><span class="n">trials</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">15</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>Dict<span class="p">[</span>int<span class="p">, </span>float<span class="p">]</span><span class="p">, </span>Dict<span class="p">[</span>int<span class="p">, </span>float<span class="p">]</span><span class="p">, </span>float<span class="p">]</span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.uncertainty.certainty" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="vqa_benchmarking_backend.metrics.uncertainty.certainty">
+<span class="sig-prename descclassname"><span class="pre">vqa_benchmarking_backend.metrics.uncertainty.</span></span><span class="sig-name descname"><span class="pre">certainty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset" title="vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset"><span class="pre">vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">adapter</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter" title="vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter"><span class="pre">vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference internal" href="../../datasets/dataset/index.html#vqa_benchmarking_backend.datasets.dataset.DataSample" title="vqa_benchmarking_backend.datasets.dataset.DataSample"><span class="pre">vqa_benchmarking_backend.datasets.dataset.DataSample</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">trials</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">int</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#vqa_benchmarking_backend.metrics.uncertainty.certainty" title="Permalink to this definition">¶</a></dt>
 <dd><p>Monte-Carlo uncertainty: predict on same sample num_iters times with different dropouts -&gt; measure how often prediction rank changes</p>
 <dl class="simple">
 <dt>Returns:</dt><dd><p>Tuple:

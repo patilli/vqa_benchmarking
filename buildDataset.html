@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -30,10 +32,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -179,11 +181,13 @@
 </ul>
 <div class="section" id="create-new-data-samples">
 <h2>Create new Data Samples<a class="headerlink" href="#create-new-data-samples" title="Permalink to this headline">¶</a></h2>
-<p>Each sample of a dataset is represented as an object of <code class="docutils literal notranslate"><span class="pre">DataSample</span></code>.
+<p>Each sample of a dataset is represented as an object of type <code class="docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.datasets.dataset.DataSample</span></code>.
 It stores all the relevant information, like the id’s for the question and image, the tokenized question, the corresponding answer,
 and the path to the image.</p>
 <p>The following code block contains an exemplary <code class="docutils literal notranslate"><span class="pre">DataSample</span></code></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">MyDataSample</span><span class="p">(</span><span class="n">DataSample</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.datasets.dataset</span> <span class="kn">import</span> <span class="n">DataSample</span>
+
+<span class="k">class</span> <span class="nc">MyDataSample</span><span class="p">(</span><span class="n">DataSample</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
                  <span class="n">question_id</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
                  <span class="n">question</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -221,11 +225,12 @@ and the path to the image.</p>
 <h2>Create new Diagnostic Datasets<a class="headerlink" href="#create-new-diagnostic-datasets" title="Permalink to this headline">¶</a></h2>
 <p>An object of <code class="docutils literal notranslate"><span class="pre">DiagnosticDataset</span></code> requires the path to the image directory, a name for the dataset, and a dictionary
 that contains a mapping of classifier index to the natural language answer string.
-The <code class="docutils literal notranslate"><span class="pre">_load_data()</span></code> function needs to be rewritten to match the desired format the dataset comes in.
+From the <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> accessor, an instance of your custom <code class="docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.datasets.dataset.DataSample</span></code> class (as created above in the class <code class="docutils literal notranslate"><span class="pre">MyDataSample</span></code>) should be returned.
+Here, the constructor loads all data using the <code class="docutils literal notranslate"><span class="pre">_load_data</span></code> method. You should create your own data loading function to match the data format for your dataset.
 The <code class="docutils literal notranslate"><span class="pre">data</span></code> property should be a list with objects of <code class="docutils literal notranslate"><span class="pre">MyDataSample</span></code> for each data entry from the original data format.</p>
-<p>The following code block contains an exemplary <code class="docutils literal notranslate"><span class="pre">DiagnosticDataset</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.utils.vocab</span> <span class="kn">import</span> <span class="n">Vocabulary</span>
-<span class="kn">from</span> <span class="nn">my_datasample</span> <span class="kn">import</span> <span class="n">MyDataSample</span>
+<p>The following code block contains an exemplary <code class="docutils literal notranslate"><span class="pre">vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.datasets.dataset</span> <span class="kn">import</span> <span class="n">DiagnosticDataset</span>
+<span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.utils.vocab</span> <span class="kn">import</span> <span class="n">Vocabulary</span>
 
 <span class="k">class</span> <span class="nc">MyDataset</span><span class="p">(</span><span class="n">DiagnosticDataset</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>

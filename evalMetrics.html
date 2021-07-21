@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -30,10 +32,10 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -170,21 +172,22 @@
 The calculation starts by calling <code class="docutils literal notranslate"><span class="pre">calculate_metrics</span></code>, and pass the model adapter, dataset, output directory and amount of trials as parameters.
 The parameter <code class="docutils literal notranslate"><span class="pre">trials</span></code> refers to the number of monte carlo trials that are performed and averaged for respective metrics.</p>
 <p>The following code block contains an example how a script could look like.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.datasets.GQADataset</span> <span class="kn">import</span> <span class="n">GQADataset</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.datasets.GQADataset</span> <span class="kn">import</span> <span class="n">GQADataset</span>  <span class="c1"># or import your own dataset</span>
 <span class="kn">from</span> <span class="nn">vqa_benchmarking_backend.metrics.metrics</span> <span class="kn">import</span> <span class="n">calculate_metrics</span>
-<span class="c1"># or import your own dataset</span>
 
-<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/my/ouput/dir&#39;</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="s1">&#39;/path/to/my/ouput/dir&#39;</span> <span class="c1"># set output directory for results. This should match the directory you are supplying to the webserver in webapp/server.py</span>
 
+<span class="c1"># directories containing the data</span>
 <span class="n">qsts_path</span> <span class="o">=</span> <span class="s1">&#39;path/to/GQA/questions.json&#39;</span>
 <span class="n">img_dir</span>   <span class="o">=</span> <span class="s1">&#39;path/to/GQA/images/&#39;</span>
 
-<span class="c1"># file that contains a dict {idx: ans_str}</span>
+<span class="c1"># file that contains a dictionary mapping from answer index to answer text: {idx: ans_str}</span>
 <span class="n">idx2ans</span> <span class="o">=</span> <span class="n">load_idx_mapping</span><span class="p">()</span>
 
+<span class="c1"># instantiate dataset using data directories and index/answer mapping</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">GQADataset</span><span class="p">(</span><span class="n">question_file</span><span class="o">=</span><span class="n">qsts_path</span><span class="p">,</span> <span class="n">img_dir</span><span class="o">=</span> <span class="n">img_dir</span><span class="p">,</span> <span class="n">img_feat_dir</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">idx2ans</span><span class="o">=</span><span class="n">idx2ans</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;GQA&#39;</span><span class="p">)</span>
 
-<span class="c1"># define a list with all metrics the model should be tested on</span>
+<span class="c1"># define a list with all metrics the model should be tested on. Remove as needed.</span>
 <span class="n">metrics</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;accuracy&#39;</span><span class="p">,</span>
     <span class="s1">&#39;question_bias_imagespace&#39;</span><span class="p">,</span>
@@ -196,6 +199,7 @@ The parameter <code class="docutils literal notranslate"><span class="pre">trial
     <span class="s1">&#39;uncertainty&#39;</span>
 <span class="p">]</span>
 
+<span class="c1"># Run the metrics calculation. Once finished, start the webserver at webapp/server.py and the vue.js app using &#39;npm start&#39; in webapp/ folder, then inspect the results in your webbrowser.</span>
 <span class="n">calculate_metrics</span><span class="p">(</span><span class="n">adapter</span><span class="o">=</span><span class="n">model_adapter</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">metrics</span><span class="p">,</span> <span class="n">trials</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
 </pre></div>
 </div>

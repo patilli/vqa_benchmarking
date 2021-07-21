@@ -22,24 +22,43 @@ Classes
 
    .. method:: add_token(self, token: str)
 
+      Add a new token to the vocabulary.
+      Will only be added, if it is not already inside the vocabulary.
+
 
    .. method:: save(self, path: str = '.data/vocab.json')
+
+      Save current state of voocabulary to file.
 
 
    .. method:: load(cls, path: str = '.data/vocab.json')
       :classmethod:
 
+      Load existing vocabulary from file.
+      Returns:
+          An instance of the loaded vocabulary.
+
 
    .. method:: stoi(self, word: str) -> Union[int, None]
+
+      String to index
 
 
    .. method:: itos(self, index: str) -> Union[str, None]
 
+      Index to string
+
 
    .. method:: exists(self, word: str) -> bool
 
+      Returns:
+      True, if word exists in this vocabulary, else False
+
 
    .. method:: __len__(self) -> int
+
+      Returns:
+      Size of vocabulary (how many words in vocabulary)
 
 
 

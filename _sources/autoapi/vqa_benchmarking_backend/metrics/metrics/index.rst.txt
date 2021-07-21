@@ -21,6 +21,7 @@ Functions
    vqa_benchmarking_backend.metrics.metrics._write_class_answer_mapping
    vqa_benchmarking_backend.metrics.metrics._write_qid_question_mapping
    vqa_benchmarking_backend.metrics.metrics._write_table
+   vqa_benchmarking_backend.metrics.metrics.write_model_info
    vqa_benchmarking_backend.metrics.metrics.calculate_metrics
 
 
@@ -59,10 +60,13 @@ Functions
 .. function:: _write_table(db: sqlite3.Connection, metric_name: str, data: dict, overwrite: bool = True)
 
 
+.. function:: write_model_info(output_path: str, adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter)
+
+
 .. function:: calculate_metrics(adapter: vqa_benchmarking_backend.datasets.dataset.DatasetModelAdapter, dataset: vqa_benchmarking_backend.datasets.dataset.DiagnosticDataset, metrics: List[str], output_path: str, trials: int = 15, min_tokens: int = 3, max_tokens: int = 10, start_sample: int = 0, max_samples: int = -1)
 
    Args:
-   metrics: choice between ['accuracy',
+   metrics: choice between [p'accuracy',
                             'question_bias_featurespace', 'question_bias_imagespace',
                             'image_bias_featurespace', 'image_bias_wordspace',
                             'image_robustness_imagespace', 'image_robustness_featurespace',

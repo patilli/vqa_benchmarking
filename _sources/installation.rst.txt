@@ -24,13 +24,19 @@ The backend is written in ``Python`` for ``PyTorch``.
 It provides datasets and model adapters to be integrated into any ``PyTorch`` repository.
 The data gets stored in ``sqlite3`` databases with a ``tornado web server``.
 
+
 Build
 ^^^^^
+
+We recommend to create and activate a new python virtual environment for the following instructions.
 
 .. code-block:: bash
 
     # change directory
     cd vqa_benchmarking/vqa_benchmarking_backend
+
+    # install required libraries   
+    pip install -r requirements.txt
 
     # install (consider adding -e)
     pip install .
@@ -39,6 +45,7 @@ Web Interface
 -------------
 
 The web application is written with ``vue.js``.
+It requires a javascript package manager like ``npm`` to be installed on your machine.
 
 Build
 ^^^^^
