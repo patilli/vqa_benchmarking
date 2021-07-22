@@ -369,9 +369,11 @@ export default {
       questionIds: [],
       sample: {},
       image_path: "",
+      image_id: ""
     };
   },
   created() {
+    this.imageConfig = require('../../imageDirs.json');
     let temp = this.$route.params;
     this.questionId = temp.questionId;
     this.questionIds = temp.questionIds;
@@ -379,7 +381,7 @@ export default {
     this.model = temp.model;
     this.dataset = temp.dataset
     this.getData(this.questionId);
-  },  
+  },
   mounted() {
     // this.drawRect();
   },
@@ -402,15 +404,8 @@ export default {
         this.questionId_idx -= 1;
         this.getData(this.questionIds[this.questionId_idx]);
       },
-      setImagePath(image_id, dataset) {
-        var image = new Image();
-        var url_image = '../images/' + image_id + '.jpg';
-        image.src = url_image;
-        if (image.width == 0) {
-          this.image_path = require(`../images/2.jpg`);
-        } else {
-          this.image_path = require(`${dataset}' + '/images/' + ${image_id} + '.jpg`);
-        }
+      setImagePath(image_id) {
+        this.image_path = require(`../images/${this.imageConfig[this.dataset]}/${image_id}.jpg`);
       },
       getData(question_id) {
       let that = this;
@@ -476,6 +471,7 @@ export default {
       this.questionid = this.questionIds[this.counter];
       this.getChart();
       this.drawRect();
+      this.setImagePath(data.imageId[0]);
     },
   },
 };

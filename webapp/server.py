@@ -2,6 +2,7 @@ import sqlite3
 from typing import List, Dict, Union
 import json
 import os
+import argparse
 
 import tornado.ioloop
 import tornado.web
@@ -81,13 +82,13 @@ def _get_avg_sears(conn: sqlite3.Connection):
     """).fetchone()[0] 
 
 
-def get_overview_data(connections: Dict[str, Dict[str, sqlite3.Connection]]):
+def get_overview_data(connections: Dict[str, Dict[str, sqlite3.Connection]], args):
     print("Creating cache for OverviewHandler...")
     cache = {"summary": [], "detail": {}}
 
     # load model info
     model_info = {}
-    file = os.path.join(output_path, 'model_info.json')
+    file = os.path.join(args.output_dir, 'model_info.json')
     with open(file, 'r') as f:
         model_info = json.load(f)
 
@@ -474,9 +475,9 @@ class SampleHandler(CorsJsonHandler):
 
 
 
-def make_app():
-    connections = get_database_connections("outputs")
-    overview_cache, dataset_list, model_list = get_overview_data(connections)
+def make_app(args):
+    connections = get_database_connections(args.output_dir)
+    overview_cache, dataset_list, model_list = get_overview_data(connections, args)
     metrics_list = ['accuracy', 'image_bias_wordspace', 'question_bias_imagespace', 'image_robustness_featurespace', 'image_robustness_imagespace',
                     'question_robustness_featurespace', 'sears', 'uncertainty']
 
@@ -493,7 +494,13 @@ def make_app():
     )
 
 if __name__ == "__main__":
-    app = make_app()
+    parser = argparse.ArgumentParser(description="VQA Benchmarking")
+
+    parser.add_argument("--output_dir", type=str, default="outputs")
+
+    args = parser.parse_args()
+
+    app = make_app(args)
     app.listen(44123)
     print("Running")
     tornado.ioloop.IOLoop.current().start()

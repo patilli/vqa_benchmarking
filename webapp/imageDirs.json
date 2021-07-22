@@ -1,0 +1,10 @@
+{
+    "GQA": "GQA/images_test",
+    "VQA2": "path/to/VQA2",
+    "OK-VQA": "path/to/OK-VQA",
+    "GQA-OOD-ALL": "GQA/images_test",
+    "GQA-OOD-HEAD": "GQA/images_test",
+    "GQA-OOD-TAIL": "GQA/images_test",
+    "TextVQA": "path/to/TextVQA",
+    "CLEVR": "path/to/CLEVR"
+}
