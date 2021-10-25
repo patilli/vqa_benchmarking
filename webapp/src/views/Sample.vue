@@ -18,8 +18,8 @@
         </b-row>
         <b-row class="mb-3">
           <b-col>
-            <!-- <b-img thumbnail :src="require(`${image_path}`)" fluid alt="Responsive image"></b-img> -->
-            <b-img thumbnail v-bind:src="image_path" fluid alt="Responsive image"></b-img>
+            <b-img thumbnail :src="'data:image/png;base64, ' + sample.image" fluid alt="Responsive image"></b-img>
+            <!-- <b-img thumbnail v-bind:src="image_path" fluid alt="Responsive image"></b-img> -->
           </b-col>
           <b-col>
             <b-card bg-variant="light" text-variant="dark" title="Statistics">
@@ -369,7 +369,7 @@ export default {
       questionIds: [],
       sample: {},
       image_path: "",
-      image_id: ""
+      image_id: "",
     };
   },
   created() {
@@ -404,8 +404,12 @@ export default {
         this.questionId_idx -= 1;
         this.getData(this.questionIds[this.questionId_idx]);
       },
-      setImagePath(image_id) {
-        this.image_path = require(`../images/${this.imageConfig[this.dataset]}/${image_id}.jpg`);
+      setImage() {
+        console.log('ImageMethod');
+        console.log(this.sample);
+        console.log(this.image.src.length)
+        console.log(this.sample.image.length)
+        //this.image_path = require(`../images/${this.imageConfig[this.dataset]}/${image_id}.jpg`);
       },
       getData(question_id) {
       let that = this;
@@ -419,10 +423,10 @@ export default {
                                                 'questionId': question_id,
                                               }) 
       }).then(res => res.json()).then(function(data) {
-        that.sample = data;
-        that.setImagePath(data.imageId[0]);
+         that.sample = data;
+        that.setImage();
       });
-      
+      console.log(this.sample)
   },
   textColor: function (pred, ground_truth) {
       let bool = false;

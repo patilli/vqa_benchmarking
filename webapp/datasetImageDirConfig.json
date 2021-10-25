@@ -1,0 +1,10 @@
+{
+    "GQA": "GQA/images_test",
+    "GQA-OOD": "GQA/images_test",
+    "GQA-OOD-HEAD": "GQA/images_test",
+    "GQA-OOD-TAIL": "GQA/images_test",
+    "CLEVR": "CLEVR",
+    "VQA2": "VQACOCO",
+    "TextVQA": "TextVQA",
+    "OK-VQA": "VQACOCO"
+}

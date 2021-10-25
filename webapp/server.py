@@ -7,6 +7,10 @@ import argparse
 import tornado.ioloop
 import tornado.web
 from tornado.web import RequestHandler
+from PIL import Image
+import io
+
+import base64
 
 
 class CorsJsonHandler(RequestHandler):
@@ -407,7 +411,7 @@ class SampleHandler(CorsJsonHandler):
 
         conn = self.connections[dataset][model]
 
-        sql = f"""SELECT q.question_id, q.question,  
+        sql = f"""SELECT q.question_id, q.question,
 					acc.top_1_class, acc.top_1_accuracy, acc.top_1_prob,
 					acc.top_2_class, acc.top_2_accuracy, acc.top_2_prob,
 					acc.top_3_class, acc.top_3_accuracy, acc.top_3_prob
@@ -468,6 +472,25 @@ class SampleHandler(CorsJsonHandler):
         sql = f"""SELECT image_id FROM questions WHERE question_id == {questionId}"""
         values = conn.execute(sql).fetchall()
         sample['imageId'] = values[0]
+        
+        image_id = str(sample['imageId'][0])
+
+        dataset_config = json.load(open('./datasetImageDirConfig.json'))
+
+        image_path = os.path.join(args.image_dir, dataset_config[dataset], image_id)
+        if dataset_config[dataset] == 'VQACOCO':
+            image_path = os.path.join(args.image_dir, dataset_config[dataset], 'COCO_val2014_' + image_id + '.jpg')
+        elif os.path.isfile(image_path + '.png'):
+            image_path = image_path + '.png'
+        elif os.path.isfile(image_path + '.jpg'):
+            image_path = image_path + '.jpg'
+        elif os.path.exists(image_path):
+            pass
+        
+        with open(image_path, "rb") as imageFile:
+            img_str = base64.b64encode(imageFile.read())
+
+        sample['image'] = img_str.decode("utf-8")
 
         self.write(sample)
         self.set_status(200)
@@ -497,6 +520,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="VQA Benchmarking")
 
     parser.add_argument("--output_dir", type=str, default="outputs")
+    parser.add_argument("--image_dir", type=str, default="images")
 
     args = parser.parse_args()
 
